@@ -1,5 +1,5 @@
-interface fishDataLog{
-    speicies?: string;
+export interface fishDataLog{
+    species?: string;
     weight?: number;
     length?: number;
     longitude: Float64Array;
