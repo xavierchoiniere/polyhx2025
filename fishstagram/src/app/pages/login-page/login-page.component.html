@@ -1,5 +1,9 @@
-<body>
+
+    
     <div class="container">
+        <div class="logo-container">
+            <img src="/logo.png" alt="Logo" class="logo">
+        </div>
         <div>
             <input [(ngModel)]="email" (keydown.enter)="focusPassword()" type="email"  placeholder="Enter your email" />
         </div>
@@ -13,4 +17,3 @@
             <button (click)="signUp()"> Sign up!</button>
         </div>
     </div>
-</body>
