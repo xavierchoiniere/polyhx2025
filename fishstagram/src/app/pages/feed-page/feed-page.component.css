@@ -53,3 +53,9 @@ button.post {
     justify-content: center;
     align-items: center;
 }
+
+.card {
+    max-width: 300px;
+}
+
+  
