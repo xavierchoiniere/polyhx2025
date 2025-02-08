@@ -9,6 +9,7 @@ import { Routes, provideRouter, withEnabledBlockingInitialNavigation } from '@an
 import { FeedPageComponent } from './app/pages/feed-page/feed-page.component';
 import { SignupPageComponent } from './app/pages/signup-page/signup-page.component';
 import { PostPageComponent } from './app/pages/post-page/post-page.component';
+import { AccountPageComponent } from './app/pages/account-page/account-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent, pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'feed', component: FeedPageComponent },
   { path: 'post', component: PostPageComponent },
   { path: 'signup', component: SignupPageComponent },
+  { path: 'account', component: AccountPageComponent },
   { path: '**', redirectTo: '' },
 ];
 bootstrapApplication(AppComponent, {
