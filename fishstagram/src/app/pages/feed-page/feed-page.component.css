@@ -5,6 +5,7 @@ html {
     height: 100%;
     font-family: Arial, sans-serif;
     background-color: transparent;
+    padding-top: 64px;
 }
 
 .toolbar {
@@ -14,6 +15,11 @@ html {
     align-items: center;
     width: 100%;
     height: 56px;
+    position: fixed;
+    top: 0;         
+    left: 0;         
+    right: 0;       
+    z-index: 1000;  
 }
 
 button {

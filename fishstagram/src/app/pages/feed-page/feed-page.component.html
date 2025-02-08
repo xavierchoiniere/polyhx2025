@@ -11,27 +11,30 @@
         </button>
     </div>
 </mat-toolbar>
+<body>
+    @for (pub of publications;  track pub){
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+              <mat-card-title>{{pub.username}}</mat-card-title>
+              <mat-card-subtitle>{{ pub.data.date | date: 'dd MMM yyyy, h:mm a' }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+            <p>{{pub.data.species}}</p>
+            <p>{{pub.data.length}}</p>
+            <p>{{pub.data.weight}}</p>
+            <p>{{pub.caption}}</p>
+            </mat-card-content>
+            <mat-card-actions class="card-actions">
+                <button mat-icon-button>
+                    <mat-icon>favorite</mat-icon>
+                </button>
+                <p>{{pub.likes}}</p>
+            </mat-card-actions>
+          </mat-card>
+        }
+</body>
 
-@for (post of posts;  track post.username){
-    <mat-card class="card" appearance="outlined">
-        <mat-card-header>
-          <mat-card-title>{{post.username}}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-        <p>specie</p>
-        <p>size</p>
-        <p>weight</p>
-        <p>caption</p>
-        </mat-card-content>
-        <mat-card-actions class="card-actions">
-            <button mat-icon-button>
-                <mat-icon>favorite</mat-icon>
-            </button>
-            <p>0</p>
-        </mat-card-actions>
-      </mat-card>
-}
 
 
 
