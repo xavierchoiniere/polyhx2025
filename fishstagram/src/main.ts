@@ -10,6 +10,7 @@ import { FeedPageComponent } from './app/pages/feed-page/feed-page.component';
 import { SignupPageComponent } from './app/pages/signup-page/signup-page.component';
 import { PostPageComponent } from './app/pages/post-page/post-page.component';
 import { AccountPageComponent } from './app/pages/account-page/account-page.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent, pathMatch: 'full' },
@@ -21,5 +22,5 @@ const routes: Routes = [
   { path: '**', redirectTo: '' },
 ];
 bootstrapApplication(AppComponent, {
-  providers: [provideHttpClient(), provideRouter(routes, withEnabledBlockingInitialNavigation()), provideAnimations()],
+  providers: [provideHttpClient(), provideRouter(routes, withEnabledBlockingInitialNavigation()), provideAnimations(), provideAnimationsAsync()],
 });
