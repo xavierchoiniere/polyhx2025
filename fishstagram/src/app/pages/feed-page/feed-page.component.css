@@ -56,6 +56,18 @@ button.post {
 
 .card {
     max-width: 300px;
+    margin: 20px auto;
+}
+
+.card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.card-actions p {
+    margin: 0;
 }
 
   

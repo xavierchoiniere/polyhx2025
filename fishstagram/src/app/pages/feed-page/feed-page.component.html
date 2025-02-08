@@ -12,23 +12,26 @@
     </div>
 </mat-toolbar>
 
-<mat-card class="card" appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>Username</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-    <p>specie</p>
-    <p>size</p>
-    <p>weight</p>
-    <p>caption</p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-icon-button>
-            <mat-icon>favorite</mat-icon>
-        </button>
-        <p>0</p>
-    </mat-card-actions>
-  </mat-card>
+@for (post of posts;  track post.username){
+    <mat-card class="card" appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>{{post.username}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+        <p>specie</p>
+        <p>size</p>
+        <p>weight</p>
+        <p>caption</p>
+        </mat-card-content>
+        <mat-card-actions class="card-actions">
+            <button mat-icon-button>
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <p>0</p>
+        </mat-card-actions>
+      </mat-card>
+}
+
 
 
