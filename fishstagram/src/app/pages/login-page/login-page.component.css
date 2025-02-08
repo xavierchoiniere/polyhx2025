@@ -9,16 +9,15 @@ html {
     font-family: Arial, sans-serif;
     background-color: transparent;
 }
-
 .container {
+    background: linear-gradient(to bottom, #87CEEB 0%, #00BFFF 30%, #1E90FF 50%, #c4b815f4 85%,#FFD700 100%);
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 50%;
-    width: 100%;
-    max-width: 400px;
-    padding-top: 12%;
 }
 
 input {
@@ -44,3 +43,16 @@ button {
 button:hover {
     background-color: #5786b5;
 }
+
+.logo {
+    width: 150px; /* Adjust size as needed */
+    height: auto; /* Keep the aspect ratio intact */
+    margin-bottom: 20px; /* Space between logo and other elements */
+    transition: transform 0.3s ease; /* Smooth scaling transition */
+  }
+  
+  .logo:hover {
+    transform: scale(1.1); /* Slightly scale the logo on hover */
+  }
+
+
