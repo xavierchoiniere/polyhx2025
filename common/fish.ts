@@ -1,4 +1,4 @@
-export interface FishDataLog{
+export interface Fish {
     species?: string;
     weight?: number;
     length?: number;
