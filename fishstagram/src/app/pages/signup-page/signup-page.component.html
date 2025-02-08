@@ -1,0 +1,23 @@
+<body>
+    <div class="container">
+        <div>
+            <input [(ngModel)]="username" (keydown.enter)="focusEmail()" type="username" placeholder="Enter your username" />
+        </div>
+        <div>
+            <input [(ngModel)]="email" (keydown.enter)="focusPassword()" type="email"  placeholder="Enter your email" />
+        </div>
+        <div>
+            <input [(ngModel)]="password" (keydown.enter)="createAccount()" type="password" placeholder="Enter your password" />
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" [(ngModel)]="isScientist" />
+                <span class="small-text">I am a scientist.</span>
+            </label>
+        </div>
+        <div>
+            <button (click)="createAccount()">Create account</button>
+        </div>
+    </div>
+</body>
+

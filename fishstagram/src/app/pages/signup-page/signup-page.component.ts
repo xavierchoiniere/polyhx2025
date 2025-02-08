@@ -1,22 +1,28 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-login-page',
+  selector: 'app-signup-page',
   imports: [FormsModule],
-  templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.css'
+  templateUrl: './signup-page.component.html',
+  styleUrl: './signup-page.component.css'
 })
-export class LoginPageComponent {
+export class SignupPageComponent {
+  username = '';
   email = '';
   password = '';
+  isScientist = false;
   constructor(private router: Router) {}
-  connect(){
-    //check if password is good (server side check)
+  createAccount(){
+    //call post to server with user interface created from the strings
     this.router.navigate(['/feed']);
   }
-  signUp(){
-    this.router.navigate(['/signup']);
+  focusEmail() {
+    const passwordInput = document.querySelector('input[type="email"]') as HTMLInputElement;
+    if (passwordInput) {
+        passwordInput.focus();
+    }
   }
   focusPassword() {
     const passwordInput = document.querySelector('input[type="password"]') as HTMLInputElement;

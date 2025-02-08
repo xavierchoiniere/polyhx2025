@@ -44,3 +44,14 @@ button {
 button:hover {
     background-color: #5786b5;
 }
+
+label {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.small-text {
+    font-size: 0.9em;
+    margin-left: 5px;
+}
