@@ -1,1 +1,38 @@
-<p>account-info-page works!</p>
+<div class="container">
+    <div class="dashboard">
+      @switch (currentScreen) {
+        @case ('posts') {
+          <div class="card">
+            <h2>My Posts</h2>
+            <p>View and manage your latest posts here.</p>
+          </div>
+        }
+        @case ('rank') {
+          <div class="card">
+            <h2>My Rank</h2>
+            <p>Check your ranking in the community.</p>
+          </div>
+        }
+        @case ('datasets') {
+          <div class="card">
+            <h2>My Datasets</h2>
+            <p>Manage and access your datasets easily.</p>
+          </div>
+        }
+      }
+    </div>
+
+    <div class="toggle-container">
+        <mat-button-toggle-group
+            [value]="currentScreen"
+            (change)="onToggleChange($event)"
+            aria-label="Screen Selection"
+        >
+            <mat-button-toggle value="posts">Posts</mat-button-toggle>
+            <mat-button-toggle value="rank">Rank</mat-button-toggle>
+            @if (isScientist) {
+              <mat-button-toggle value="datasets">Datasets</mat-button-toggle>
+            }
+        </mat-button-toggle-group>
+    </div>
+</div>
