@@ -17,10 +17,10 @@ export class FishDto {
   @IsString()
   length?: number;
 
-  @IsString()
+  @IsNumber()
   longitude: number;
 
-  @IsString()
+  @IsNumber()
   latitude: number;
 
   @IsString()
