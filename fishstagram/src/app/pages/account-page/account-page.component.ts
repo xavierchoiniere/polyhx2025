@@ -22,7 +22,6 @@ export class AccountPageComponent {
   isScientist: boolean = sessionStorage.getItem('isScientist') as unknown as boolean;
   username: string = sessionStorage.getItem('username') as string;
   rank: number = 1;
-
   publications: Publication[] = [];
   leaderboard: User[] = [];
   datasets: Dataset[] = [];
@@ -53,5 +52,10 @@ export class AccountPageComponent {
 
   onToggleChange(event: any) {
     this.currentScreen = event.value;
+  }
+
+  isYourUser(username: String): boolean {
+    if(username === sessionStorage.getItem('username')) return true;
+    return false
   }
 }
