@@ -23,8 +23,8 @@ export class StatsMainPageComponent {
   latitude: number = 0;
   longitude: number = 0;
   radius: number = 0;
-  startDate: Date = new Date();
-  endDate: Date = new Date();
+  startDate: Date | undefined;
+  endDate: Date | undefined;
   fishResults: Fish[] = [];
   dataset: Dataset = {username: '', title: '', description: '', data: this.fishResults};
   openCreation(){
