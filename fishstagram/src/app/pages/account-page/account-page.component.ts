@@ -17,7 +17,7 @@ import { MatListModule } from '@angular/material/list';
 export class AccountPageComponent {
   constructor(private communicationService: CommunicationService) {}
   currentScreen: string = 'Publications'; 
-  isScientist: boolean = JSON.parse(sessionStorage.getItem('isScientist') as string);
+  isScientist: boolean = sessionStorage.getItem('isScientist') as unknown as boolean;
 
   publications: Publication[] = [];
   leaderboard = [
