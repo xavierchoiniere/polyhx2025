@@ -76,6 +76,7 @@ export class PostPageComponent {
           {next: () => {  this.communicationService.getUser(newUsername).subscribe({
             next: (user) => {
               this.communicationService.updateUserLevel(newUsername, user.level + 1);
+              this.router.navigate(['/feed']);
             }})}})}})
   }
 }
