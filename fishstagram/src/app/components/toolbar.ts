@@ -9,7 +9,7 @@ import { AuthGuard } from '../auth.guard';
     selector: 'toolbar',
     templateUrl: 'toolbar.html',
     styleUrl: 'toolbar.css',
-    imports: [MatToolbarModule, MatButtonModule, MatIconModule, AuthGuard],
+    imports: [MatToolbarModule, MatButtonModule, MatIconModule],
   })
   export class Toolbar {
 
