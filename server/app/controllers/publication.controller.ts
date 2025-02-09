@@ -10,7 +10,6 @@ export class PublicationController {
 
   @Post()
   async addPublication(@Body() createPublicationDto: PublicationDto): Promise<Publication> {
-    await this.fishService.createFish(createPublicationDto.data);
     return this.publicationService.createPublication(createPublicationDto);
   }
 

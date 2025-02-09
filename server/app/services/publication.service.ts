@@ -10,14 +10,11 @@ export class PublicationService {
   constructor(
     @InjectModel(Publication.name)
     private publicationModel: Model<PublicationDocument>,
-    private readonly fishService: FishService
   ) {}
 
   async createPublication(
     createPublicationDto: PublicationDto
   ): Promise<Publication> {
-    await this.fishService.createFish(createPublicationDto.data);
-
     const createdPublication = new this.publicationModel(createPublicationDto);
     return createdPublication.save();
   }
