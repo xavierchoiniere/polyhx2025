@@ -7,6 +7,7 @@ import {
   Publication,
   PublicationDocument,
 } from "../model/schema/publication.schema";
+import { Dataset, DatasetDocument } from "../model/schema/dataset.schema";
 
 @Injectable()
 export class PopulateService {
@@ -14,23 +15,24 @@ export class PopulateService {
     @InjectModel(User.name) private userModel: Model<UserDocument>,
     @InjectModel(Fish.name) private fishModel: Model<FishDocument>,
     @InjectModel(Publication.name)
-    private publicationModel: Model<PublicationDocument>
+    private publicationModel: Model<PublicationDocument>,
+    @InjectModel(Dataset.name) private datasetModel: Model<DatasetDocument>
   ) {
-    // Uncomment the following line to reset and populate the database
-    // this.resetAndPopulateDb();
+    this.resetAndPopulateDb();
   }
 
   async resetAndPopulateDb(): Promise<void> {
     await this.userModel.deleteMany({});
     await this.fishModel.deleteMany({});
     await this.publicationModel.deleteMany({});
+    await this.datasetModel.deleteMany({});
 
     const users: User[] = [
       {
         username: "user1",
         email: "user1@example.com",
         password: "password1",
-        isScientist: false,
+        isScientist: true,
         level: 1,
       },
       {
@@ -239,8 +241,38 @@ export class PopulateService {
       },
     ];
 
+    const datasets: Dataset[] = [
+      {
+        username: "user1",
+        name: "Dataset 1 - Species 1",
+        data: fish.filter((f) => f.species === "species1"),
+        createdAt: new Date(),
+      },
+      {
+        username: "user1",
+        name: "Dataset 2 - Weight > 5",
+        data: fish.filter((f) => f.weight > 5),
+        createdAt: new Date(),
+      },
+      {
+        username: "user1",
+        name: "Dataset 3 - Length < 50",
+        data: fish.filter((f) => f.length < 50),
+        createdAt: new Date(),
+      },
+      {
+        username: "user1",
+        name: "Dataset 4 - Species 2 and 3",
+        data: fish.filter(
+          (f) => f.species === "species2" || f.species === "species3"
+        ),
+        createdAt: new Date(),
+      },
+    ];
+
     await this.userModel.insertMany(users);
     await this.fishModel.insertMany(fish);
     await this.publicationModel.insertMany(publications);
+    await this.datasetModel.insertMany(datasets);
   }
 }

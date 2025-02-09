@@ -12,7 +12,7 @@ export class DatasetController {
     return this.datasetService.saveDataset(datasetDto);
   }
 
-  @Get(':username')
+  @Get('user/:username')
   async getDatasetsByUsername(@Param('username') username: string): Promise<Dataset[]> {
     return this.datasetService.getDatasetsByUsername(username);
   }
