@@ -107,7 +107,7 @@ export class PopulateService {
         length: 10,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish1.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -116,7 +116,7 @@ export class PopulateService {
         length: 20,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish2.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -125,7 +125,7 @@ export class PopulateService {
         length: 30,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish3.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -134,7 +134,7 @@ export class PopulateService {
         length: 40,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish4.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -143,7 +143,7 @@ export class PopulateService {
         length: 50,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish5.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -152,7 +152,7 @@ export class PopulateService {
         length: 60,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish6.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -161,7 +161,7 @@ export class PopulateService {
         length: 70,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish7.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -170,7 +170,7 @@ export class PopulateService {
         length: 80,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish8.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -179,7 +179,7 @@ export class PopulateService {
         length: 90,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish9.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -188,7 +188,7 @@ export class PopulateService {
         length: 100,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish10.jpg",
+        imageUrl: "",
         date: new Date(),
       },
     ];
@@ -244,30 +244,22 @@ export class PopulateService {
     const datasets: Dataset[] = [
       {
         username: "user1",
-        name: "Dataset 1 - Species 1",
-        data: fish.filter((f) => f.species === "species1"),
-        createdAt: new Date(),
+        title: "dataset1",
+        description: "description1",
+        data: [fish[0], fish[1], fish[2]],
       },
       {
         username: "user1",
-        name: "Dataset 2 - Weight > 5",
-        data: fish.filter((f) => f.weight > 5),
-        createdAt: new Date(),
+        title: "dataset2",
+        description: "description2",
+        data: [fish[3], fish[4], fish[5]],
       },
       {
         username: "user1",
-        name: "Dataset 3 - Length < 50",
-        data: fish.filter((f) => f.length < 50),
-        createdAt: new Date(),
-      },
-      {
-        username: "user1",
-        name: "Dataset 4 - Species 2 and 3",
-        data: fish.filter(
-          (f) => f.species === "species2" || f.species === "species3"
-        ),
-        createdAt: new Date(),
-      },
+        title: "dataset2",
+        description: "description2",
+        data: [fish[6], fish[7], fish[8]],
+      }
     ];
 
     await this.userModel.insertMany(users);
