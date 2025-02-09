@@ -25,4 +25,10 @@ export class UserService {
   async getAllUsers(): Promise<User[]> {
     return this.userModel.find().exec();
   }
+
+  async updateUserLevel(username: string, level: number): Promise<User> {
+    return this.userModel
+      .findOneAndUpdate({ username }, { level }, { new: true })
+      .exec();
+  }
 }
