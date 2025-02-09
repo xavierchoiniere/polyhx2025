@@ -41,7 +41,9 @@ export class AccountPageComponent {
     });
     this.communicationService.getPublicationsByUser(this.username).subscribe({
       next: (response) => {
-        this.publications = response;
+        this.publications =response.sort((a, b) => {
+          return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+        });
       }
     });
     if (this.isScientist) {
