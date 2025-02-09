@@ -3,19 +3,19 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { Router } from '@angular/router';
+import { AuthGuard } from '../auth.guard';
 
 @Component({
     selector: 'toolbar',
     templateUrl: 'toolbar.html',
     styleUrl: 'toolbar.css',
-    imports: [MatToolbarModule, MatButtonModule, MatIconModule],
+    imports: [MatToolbarModule, MatButtonModule, MatIconModule, AuthGuard],
   })
   export class Toolbar {
 
     isScientist: boolean = sessionStorage.getItem('isScientist') as unknown as boolean;
     userName: string = " " + sessionStorage.getItem('username') as string;
   
-    
     ngOnInit(): void {
       const storedValue = sessionStorage.getItem('isScientist');
       this.isScientist = storedValue === 'true';
@@ -32,5 +32,10 @@ import { Router } from '@angular/router';
     }
     openFeed(){
       this.router.navigate(['/feed']);
+    }
+
+    openLogin(){
+      localStorage.removeItem('loginTime');
+      this.router.navigate(['/login']);
     }
   }
