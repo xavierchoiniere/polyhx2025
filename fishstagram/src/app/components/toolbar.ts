@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   export class Toolbar {
 
     isScientist: boolean = sessionStorage.getItem('isScientist') as unknown as boolean;
-    userName: string = sessionStorage.getItem('username') as string;
+    userName: string = " " + sessionStorage.getItem('username') as string;
   
     
     ngOnInit(): void {
