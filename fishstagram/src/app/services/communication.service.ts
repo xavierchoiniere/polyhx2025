@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '@common/user';
 import { Publication } from '@common/publication';
+import { Fish } from '@common/fish';
 
 @Injectable({
   providedIn: 'root',
@@ -34,7 +35,15 @@ export class CommunicationService {
     return this.http.get<User>(`${this.apiUrl}/users/${username}`);
   }
 
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}/users`);
+  }
+
   addPublication(publication: Publication): Observable<Publication> {
     return this.http.post<Publication>(`${this.apiUrl}/publications`, publication);
+  }
+
+  createFish(fish: Fish): Observable<Fish>{
+    return this.http.post<Fish>(`${this.apiUrl}/fish/create`, fish)
   }
 }

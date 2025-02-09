@@ -3,12 +3,18 @@ import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { Publication, PublicationDocument } from "../model/schema/publication.schema";
 import { PublicationDto } from "../model/dto/publication.dto";
+import { FishService } from "./fish.service";
 
 @Injectable()
 export class PublicationService {
-  constructor(@InjectModel(Publication.name) private publicationModel: Model<PublicationDocument>) {}
+  constructor(
+    @InjectModel(Publication.name)
+    private publicationModel: Model<PublicationDocument>,
+  ) {}
 
-  async createPublication(createPublicationDto: PublicationDto): Promise<Publication> {
+  async createPublication(
+    createPublicationDto: PublicationDto
+  ): Promise<Publication> {
     const createdPublication = new this.publicationModel(createPublicationDto);
     return createdPublication.save();
   }
@@ -26,6 +32,8 @@ export class PublicationService {
   }
 
   async updateLikes(id: string, likes: number): Promise<Publication> {
-    return this.publicationModel.findByIdAndUpdate(id, { likes }, { new: true }).exec();
+    return this.publicationModel
+      .findByIdAndUpdate(id, { likes }, { new: true })
+      .exec();
   }
 }

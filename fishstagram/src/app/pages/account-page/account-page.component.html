@@ -4,24 +4,45 @@
 </div>
 
 <div class="content">
-  @if (currentScreen === 'Publications') {
-    <div class="publications-container">
-      @for (pub of publications; track pub) {
-        <mat-card class="card" appearance="outlined">
-          <mat-card-header>
-            <mat-card-title>{{ pub.username }}</mat-card-title>
-            <mat-card-subtitle>{{ pub.data.date | date: 'dd MMM yyyy, h:mm a' }}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>{{ pub.data.species }}</p>
-            <p>{{ pub.data.length }}</p>
-            <p>{{ pub.data.weight }}</p>
-            <p>{{ pub.caption }}</p>
-          </mat-card-content>
-        </mat-card>
-      }
-    </div>
+  @switch (currentScreen) {
+    @case ('Publications') {
+      <div class="publications-container">
+        @for (pub of publications; track pub) {
+          <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+              <mat-card-title>{{pub.username}}</mat-card-title>
+              <mat-card-subtitle>{{ pub.data.date | date: 'dd MMM yyyy, h:mm a' }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{pub.data.imageUrl}} alt="Photo unavailable">
+            <mat-card-content>
+            <p>{{pub.data.species ? pub.data.species : ''}}</p>
+            <p>{{pub.data.length ? pub.data.length + ' cm' : ''}}</p>
+            <p>{{pub.data.weight ? pub.data.weight + ' kg' : ''}}</p>
+            <p>{{pub.caption}}</p>
+            </mat-card-content>
+          </mat-card>
+        }
+      </div>
+    }
+    @case ('Rank') {
+      <div class="rank-container">
+        @for (user of leaderboard; track user) {
+          <mat-card class="rank-card" appearance="outlined">
+            <div class="rank-card-content">
+              <div class="rank">#{{ rank }}</div>
+              <div class="user-name">{{ user.username }}</div>
+              <div class="user-level">Level {{ user.level }}</div>
+            </div>
+          </mat-card>
+        }
+      </div>
+    }
+    @case ('Datasets') {
+      <!-- Dataset screen content goes here -->
+    }
+    @default {
+      console.error('Invalid screen');
+    }
   }
 </div>
 
