@@ -1,7 +1,7 @@
-import { fishDataLog } from "./fishDataLog";
+import { Fish } from "./fish";
 
 export interface post{
-    data: fishDataLog;
+    data: Fish;
     user: String;
     caption: string;
     likes: number; 
