@@ -69,7 +69,9 @@ export class PostPageComponent {
     }
     const newUsername = sessionStorage.getItem('username') as string;
     const newFishData = {... this.fishData, date: new Date(), imageUrl: this.imageUrl as string};
-    this.communicationService.addPublication({ username: newUsername, data: newFishData, caption: this.caption }).subscribe();
-    this.communicationService.createFish(newFishData).subscribe();
+    this.communicationService.createFish(newFishData).subscribe(
+      {next: () => {this.communicationService.addPublication(
+        { username: newUsername, data: newFishData, caption: this.caption }).subscribe();}});
+    
   }
 }
