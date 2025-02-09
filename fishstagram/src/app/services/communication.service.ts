@@ -22,6 +22,7 @@ export class CommunicationService {
       password,
     });
   }
+  
   getAllPublications(): Observable<Publication[]> {
     return this.http.get<Publication[]>(`${this.apiUrl}/publications`);
   }
