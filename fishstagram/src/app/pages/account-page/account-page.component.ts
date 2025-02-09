@@ -27,7 +27,7 @@ export class AccountPageComponent {
   ngOnInit() {
     this.communicationService.getAllUsers().subscribe({
       next: (response) => {
-        this.leaderboard = response;
+        this.leaderboard = response.sort((a, b) => b.level - a.level);
       }
     });  
     this.communicationService.getPublicationsByUser(sessionStorage.getItem('username') as string).subscribe({

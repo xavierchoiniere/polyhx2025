@@ -29,7 +29,7 @@
         @for (user of leaderboard; track user) {
           <mat-card class="rank-card" appearance="outlined">
             <div class="rank-card-content">
-              <div class="rank">#{{ rank }}</div>
+              <div class="rank">#{{ rank + 1}}</div>
               <div class="user-name">{{ user.username }}</div>
               <div class="user-level">Level {{ user.level }}</div>
             </div>
