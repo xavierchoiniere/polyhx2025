@@ -30,7 +30,7 @@ export class FishService {
     if (longitude && latitude && radius) {
       query.location = {
         $geoWithin: {
-          $centerSphere: [[longitude, latitude], radius / 3963.2], // radius in miles
+          $centerSphere: [[longitude, latitude], radius / 6371000], // radius in meters
         },
       };
     }

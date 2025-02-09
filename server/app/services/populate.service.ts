@@ -9,6 +9,8 @@ import {
 } from "../model/schema/publication.schema";
 import { Dataset, DatasetDocument } from "../model/schema/dataset.schema";
 
+const dirpath = "../../assets/photos";
+
 @Injectable()
 export class PopulateService {
   constructor(
@@ -107,7 +109,7 @@ export class PopulateService {
         length: 10,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "",
+        imageUrl: `${dirpath}/9.jpeg`,
         date: new Date(),
       },
       {
@@ -116,7 +118,7 @@ export class PopulateService {
         length: 20,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "",
+        imageUrl: `${dirpath}/2.jpeg`,
         date: new Date(),
       },
       {
@@ -125,7 +127,7 @@ export class PopulateService {
         length: 30,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "",
+        imageUrl: `${dirpath}/3.jpeg`,
         date: new Date(),
       },
       {
@@ -134,7 +136,7 @@ export class PopulateService {
         length: 40,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "",
+        imageUrl: `${dirpath}/4.jpeg`,
         date: new Date(),
       },
       {
@@ -143,7 +145,7 @@ export class PopulateService {
         length: 50,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "",
+        imageUrl: `${dirpath}/5.jpeg`,
         date: new Date(),
       },
       {
@@ -152,7 +154,7 @@ export class PopulateService {
         length: 60,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "",
+        imageUrl: `${dirpath}/6.jpeg`,
         date: new Date(),
       },
       {
@@ -161,7 +163,7 @@ export class PopulateService {
         length: 70,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "",
+        imageUrl: `${dirpath}/7.jpeg`,
         date: new Date(),
       },
       {
@@ -170,7 +172,7 @@ export class PopulateService {
         length: 80,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "",
+        imageUrl: `${dirpath}/8.jpeg`,
         date: new Date(),
       },
       {
@@ -179,7 +181,7 @@ export class PopulateService {
         length: 90,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "",
+        imageUrl: `${dirpath}/9.jpeg`,
         date: new Date(),
       },
       {
@@ -188,7 +190,7 @@ export class PopulateService {
         length: 100,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "",
+        imageUrl: `${dirpath}/1.jpeg`,
         date: new Date(),
       },
     ];
@@ -259,7 +261,7 @@ export class PopulateService {
         title: "dataset2",
         description: "description2",
         data: [fish[6], fish[7], fish[8]],
-      }
+      },
     ];
 
     await this.userModel.insertMany(users);
