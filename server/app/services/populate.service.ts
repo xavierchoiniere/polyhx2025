@@ -107,7 +107,7 @@ export class PopulateService {
         length: 10,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish1.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -116,7 +116,7 @@ export class PopulateService {
         length: 20,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish2.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -125,7 +125,7 @@ export class PopulateService {
         length: 30,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish3.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -134,7 +134,7 @@ export class PopulateService {
         length: 40,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish4.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -143,7 +143,7 @@ export class PopulateService {
         length: 50,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish5.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -152,7 +152,7 @@ export class PopulateService {
         length: 60,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish6.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -161,7 +161,7 @@ export class PopulateService {
         length: 70,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish7.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -170,7 +170,7 @@ export class PopulateService {
         length: 80,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish8.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -179,7 +179,7 @@ export class PopulateService {
         length: 90,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish9.jpg",
+        imageUrl: "",
         date: new Date(),
       },
       {
@@ -188,7 +188,7 @@ export class PopulateService {
         length: 100,
         longitude: -73.935242,
         latitude: 40.73061,
-        imageUrl: "http://example.com/fish10.jpg",
+        imageUrl: "",
         date: new Date(),
       },
     ];
