@@ -9,6 +9,7 @@ import { CommunicationService } from '../../services/communication.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { PopupComponent } from '../../components/popup/popup.component';
 import { Dataset } from '@common/dataset';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-stats-main-page',
@@ -17,7 +18,7 @@ import { Dataset } from '@common/dataset';
   styleUrl: './stats-main-page.component.css'
 })
 export class StatsMainPageComponent {
-  constructor(private router: Router, private communicationService: CommunicationService, private dialog: MatDialog,) {}
+  constructor(private router: Router, private communicationService: CommunicationService, private dialog: MatDialog, private snackBar: MatSnackBar) {}
   speciesFilter: string[] = [];
   speciesFilterInput: string = '';
   latitude: number = 0;
@@ -37,7 +38,8 @@ export class StatsMainPageComponent {
         this.dataset.title = result.title;
         this.dataset.data = this.fishResults;
         this.dataset.username = sessionStorage.getItem('username') as string;
-        this.communicationService.saveDataset(this.dataset).subscribe();
+        this.communicationService.saveDataset(this.dataset).subscribe({
+          next: () => {this.snackBar.open('Dataset created successfully.', 'Close', { duration: 3000 });}});
       }
     });
   }
