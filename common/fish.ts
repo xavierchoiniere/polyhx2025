@@ -5,6 +5,6 @@ export interface Fish {
     length?: number;
     longitude: number;
     latitude: number;
-    imageUrl: string;  
+    imageUrl?: string;  
     date: Date;  
 }
