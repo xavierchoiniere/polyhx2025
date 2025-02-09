@@ -14,8 +14,8 @@ import { DatePipe } from '@angular/common';
 })
 
 export class AccountPageComponent {
-  currentScreen: string = 'posts'; 
-  isScientist: boolean = false; 
+  currentScreen: string = 'Posts'; 
+  isScientist: boolean = true; 
 
   fish: Fish = {
     _id: 'fish1',
@@ -41,7 +41,6 @@ export class AccountPageComponent {
         date: new Date('2023-09-25')
       },
       caption: 'Another great day by the river!',
-      likes: 15
     },
     {
       _id: '3',
@@ -56,7 +55,6 @@ export class AccountPageComponent {
         date: new Date('2023-09-30')
       },
       caption: 'Biggest catch of the season!',
-      likes: 20
     }
   ];
 

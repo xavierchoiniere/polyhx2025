@@ -4,7 +4,7 @@
 </div>
 
 <div class="content">
-  @if (currentScreen === 'posts') {
+  @if (currentScreen === 'Posts') {
     <div class="posts-container">
       @for (pub of publications; track pub) {
         <mat-card class="card" appearance="outlined">
@@ -19,12 +19,6 @@
             <p>{{ pub.data.weight }}</p>
             <p>{{ pub.caption }}</p>
           </mat-card-content>
-          <mat-card-actions class="card-actions">
-            <button mat-icon-button>
-              <mat-icon>favorite</mat-icon>
-            </button>
-            <p>{{ pub.likes }}</p>
-          </mat-card-actions>
         </mat-card>
       }
     </div>
@@ -33,10 +27,10 @@
 
 <div class="bottom-bar">
   <mat-button-toggle-group [value]="currentScreen" (change)="onToggleChange($event)">
-    <mat-button-toggle value="posts">Posts</mat-button-toggle>
-    <mat-button-toggle value="rank">Rank</mat-button-toggle>
+    <mat-button-toggle value="Posts">Posts</mat-button-toggle>
+    <mat-button-toggle value="Rank">Rank</mat-button-toggle>
     @if (isScientist) {
-      <mat-button-toggle value="datasets">Datasets</mat-button-toggle>
+      <mat-button-toggle value="Datasets">Datasets</mat-button-toggle>
     }
   </mat-button-toggle-group>
 </div>
