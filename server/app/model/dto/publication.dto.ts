@@ -15,6 +15,7 @@ export class PublicationDto {
   @IsString()
   caption: string;
 
+  @IsOptional()
   @IsNumber()
   likes: number;
 }
