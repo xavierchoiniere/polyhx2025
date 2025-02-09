@@ -11,6 +11,8 @@ import { SignupPageComponent } from './app/pages/signup-page/signup-page.compone
 import { PostPageComponent } from './app/pages/post-page/post-page.component';
 import { AccountPageComponent } from './app/pages/account-page/account-page.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { StatsMainPageComponent } from './app/pages/stats-main-page/stats-main-page.component';
+import { StatsCreationPageComponent } from './app/pages/stats-creation-page/stats-creation-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent, pathMatch: 'full' },
@@ -19,6 +21,7 @@ const routes: Routes = [
   { path: 'post', component: PostPageComponent },
   { path: 'signup', component: SignupPageComponent },
   { path: 'account', component: AccountPageComponent },
+  { path: 'main-stats', component: StatsCreationPageComponent },
   { path: '**', redirectTo: '' },
 ];
 bootstrapApplication(AppComponent, {

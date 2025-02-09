@@ -41,13 +41,14 @@ export class AccountPageComponent {
         this.publications = response;
       }
     });
-    if (this.isScientist) {
-      this.communicationService.getDatasetsByUser(this.username).subscribe({
-        next: (response) => {
-          this.datasets = response;
-        }
-      });
-    }
+  }
+
+  onDatasetClick() {
+    this.communicationService.getDatasetsByUser(this.username).subscribe({
+      next: (response) => {
+        this.datasets = response;
+      }
+    });
   }
 
   onToggleChange(event: any) {
@@ -58,4 +59,6 @@ export class AccountPageComponent {
     if(username === sessionStorage.getItem('username')) return true;
     return false
   }
+
+  
 }

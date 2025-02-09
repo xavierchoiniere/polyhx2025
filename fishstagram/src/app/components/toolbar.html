@@ -1,13 +1,23 @@
 <mat-toolbar class="toolbar">
-    <button class="post" (click)="openPost()">
-        <mat-icon>upload</mat-icon>
-        <span>Post</span>
-    </button>
-    <span class="title">Fishstagram</span>
+    <div class="logo-container">
+        <img src="/logo.png" alt="Logo" class="logo">
+        <div class="title"> Fishstagram </div>
+    </div>
+    
     <div class="button-container">
-        <button>Search fish data</button>
-        <button mat-icon-button (click)="openAccount()">
-            <mat-icon>account_circle</mat-icon>
+        <button class="post" (click)="openPost()">
+            <mat-icon id="no-overflow">add</mat-icon>
+            <span>Post</span>
+        </button>
+        @if (isScientist) {
+            <button>
+                <mat-icon id="no-overflow">folder</mat-icon>
+                Search fish data
+            </button>
+        }
+        <button (click)="openAccount()">
+            <mat-icon id="no-overflow" >account_circle</mat-icon>
+            User name?
         </button>
     </div>
 </mat-toolbar>

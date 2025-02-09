@@ -11,6 +11,16 @@ import { Router } from '@angular/router';
     imports: [MatToolbarModule, MatButtonModule, MatIconModule],
   })
   export class Toolbar {
+
+    isScientist: boolean = sessionStorage.getItem('isScientist') as unknown as boolean;
+  
+    
+    ngOnInit(): void {
+      const storedValue = sessionStorage.getItem('isScientist');
+      this.isScientist = storedValue === 'true';
+  
+      console.log('isScientist:', this.isScientist);
+    }
     constructor(private router: Router) {}
       
     openPost(){

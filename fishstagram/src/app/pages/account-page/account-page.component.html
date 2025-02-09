@@ -38,7 +38,7 @@
       </div>
     }
     @case ('Datasets') {
-      <!-- Dataset screen content goes here -->
+      
     }
     @default {
       console.error('Invalid screen');
@@ -51,7 +51,7 @@
     <mat-button-toggle value="Publications">Publications</mat-button-toggle>
     <mat-button-toggle value="Rank">Rank</mat-button-toggle>
     @if (isScientist) {
-      <mat-button-toggle value="Datasets">Datasets</mat-button-toggle>
+      <mat-button-toggle (click)="onDatasetClick()" value="Datasets">Datasets</mat-button-toggle>
     }
   </mat-button-toggle-group>
 </div>
