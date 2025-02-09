@@ -1,7 +1,4 @@
-<div class="header">
-  <img src="/logo.png" alt="Logo" class="logo">
-  <h1 class="tab-title">{{ currentScreen }}</h1>
-</div>
+<toolbar></toolbar>
 
 <div class="content">
   @switch (currentScreen) {
@@ -38,6 +35,7 @@
       </div>
     }
     @case ('Datasets') {
+      <app-dataset-table></app-dataset-table>
       <!-- Dataset screen content goes here -->
     }
     @default {
