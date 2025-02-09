@@ -3,8 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 80px;
-    height: 100%;
+    margin-top: 100px;
     position: relative;
 }
 
@@ -20,9 +19,8 @@
 .action-buttons {
     display: flex;
     justify-content: space-evenly;
-    gap: 70px;
-    margin-top: 300px;
-    margin-bottom: 0;
+    gap: 40px;
+    margin-top: 250px;
 }
 
 button {
@@ -38,4 +36,3 @@ button {
 button:hover {
     background-color: #5786b5;
 }
-  

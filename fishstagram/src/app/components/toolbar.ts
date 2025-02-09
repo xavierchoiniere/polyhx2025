@@ -37,7 +37,7 @@ import { AuthGuard } from '../auth.guard';
       this.router.navigate(['/feed']);
     }
 
-    openLogin(){
+    logout(){
       localStorage.removeItem('loginTime');
       this.router.navigate(['/login']);
     }
