@@ -1,10 +1,11 @@
 <toolbar></toolbar>
 <div class="filters">
     <div class="filter-container">
-      <div class="filter-section">
-        <label for="species">Species</label>
-        <input type="text" id="species" placeholder="Enter species (comma separated)" [(ngModel)]="speciesFilter" />
-      </div>
+        <div class="filter-section">
+            <label for="species">Species</label>
+            <input type="text" id="species" placeholder="Enter species (space separated)" [(ngModel)]="speciesFilterInput" (input)="onSpeciesInputChange()" />
+          </div>
+          
   
       <div class="filter-section">
         <label for="latitude">Latitude</label>
@@ -33,7 +34,7 @@
         <input type="date" id="end-date" [(ngModel)]="endDate" />
       </div>
     </div>
-  
+    <app-fish-table [fishResults]="fishResults"></app-fish-table>
     <div class="action-buttons">
       <button (click)="search()">Search</button>
       <button class="add-btn" (click)="openCreation()">Add Dataset</button>

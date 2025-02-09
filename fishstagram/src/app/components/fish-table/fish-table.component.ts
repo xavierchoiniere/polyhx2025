@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { Fish } from '@common/fish';
 
 export interface FishData {
   species: string;
@@ -14,13 +15,6 @@ export interface FishData {
   latitude: number;
   longitude: number;
 }
-
-const FISH_DATA: FishData[] = [
-  { species: 'Salmon', date: '2024-02-01', latitude: 48.858844, longitude: 2.294351 },
-  { species: 'Tuna', date: '2024-02-02', latitude: 35.689487, longitude: 139.691706 },
-  { species: 'Trout', date: '2024-02-03', latitude: -33.868820, longitude: 151.209290 },
-  { species: 'Bass', date: '2024-02-04', latitude: 40.712776, longitude: -74.005974 }
-];
 
 @Component({
   selector: 'app-fish-table',
@@ -36,8 +30,25 @@ const FISH_DATA: FishData[] = [
   styleUrls: ['./fish-table.component.css']
 })
 export class FishTableComponent {
+  @Input() fishResults: Fish[] = [];
+  transformFishResultsToFishData(): FishData[] {
+    const fishData: FishData[] = [];
+
+    for (const fish of this.fishResults) {
+      const data: FishData = {
+        species: fish.species as string,
+        date: fish.date.toString(),
+        latitude: fish.latitude,
+        longitude: fish.longitude,
+      };
+
+      fishData.push(data);
+    }
+
+    return fishData;
+  }
   displayedColumns: string[] = ['species', 'date', 'latitude', 'longitude'];
-  dataSource = new MatTableDataSource<FishData>(FISH_DATA);
+  dataSource = new MatTableDataSource<FishData>(this.transformFishResultsToFishData());
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -45,6 +56,17 @@ export class FishTableComponent {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['fishResults'] && this.fishResults) {
+      this.dataSource.data = this.transformFishResultsToFishData();
+      if (this.paginator) {
+        this.dataSource.paginator = this.paginator;
+      }
+      if (this.sort) {
+        this.dataSource.sort = this.sort;
+      }
+    }
   }
 
   applyFilter(event: Event) {
