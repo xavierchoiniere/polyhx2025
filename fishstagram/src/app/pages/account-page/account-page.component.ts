@@ -24,10 +24,12 @@ export class AccountPageComponent {
   leaderboard: User[] = [];
 
   ngOnInit() {
-    this.communicationService.getPublicationsByUser(sessionStorage.getItem('username') as string).subscribe({
+/*
+    this.communicationService.getAllUsers().subscribe({
       next: (response) => {
-        this.publications = response;
+        this.User = response;
       }});
+      */
     this.communicationService.getPublicationsByUser(sessionStorage.getItem('username') as string).subscribe({
       next: (response) => {
         this.publications = response;
