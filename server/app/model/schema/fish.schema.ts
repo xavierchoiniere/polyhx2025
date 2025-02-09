@@ -1,3 +1,4 @@
+import { PROPERTY_DEPS_METADATA } from '@nestjs/common/constants';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
@@ -14,11 +15,11 @@ export class Fish {
   @Prop()
   length?: number;
 
-  @Prop({ type: { longitude: Number, latitude: Number }, index: '2dsphere' })
-  location: {
-    longitude: number;
-    latitude: number;
-  };
+  @Prop()
+  longitude: number;
+
+  @Prop()
+  latitude: number;
 
   @Prop()
   imageUrl: string;
