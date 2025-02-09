@@ -5,7 +5,7 @@ import * as bodyParser from "body-parser";
 
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix("api");
+  app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors();
 
