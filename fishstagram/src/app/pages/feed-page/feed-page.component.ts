@@ -21,6 +21,11 @@ export class FeedPageComponent {
   publications: Publication[] = [];
   ngOnInit(){
     this.communicationService.getAllPublications().subscribe({next: (response) => {this.publications = response}});
+    this.publications.sort((a, b) => {
+      const dateA = new Date(a.data.date);
+      const dateB = new Date(b.data.date);
+      return dateB.getTime() - dateA.getTime();
+    });
   }
 
 }

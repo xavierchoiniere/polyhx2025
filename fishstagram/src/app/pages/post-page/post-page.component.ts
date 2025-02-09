@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommunicationService } from '../../services/communication.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Fish } from '@common/fish';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-page',
@@ -15,7 +16,7 @@ export class PostPageComponent {
   imageUrl: string | ArrayBuffer | null = null;
   caption: string = '';
   fishData: Fish = {species: '', weight: 0, length: 0, latitude: 0, longitude: 0, imageUrl: '', date: new Date()}
-  constructor(private communicationService: CommunicationService, private snackBar: MatSnackBar) {}
+  constructor(private communicationService: CommunicationService, private snackBar: MatSnackBar, private router: Router,) {}
 
   isImage(): boolean {
     return this.imageUrl !== null;
@@ -72,6 +73,6 @@ export class PostPageComponent {
     this.communicationService.createFish(newFishData).subscribe(
       {next: () => {this.communicationService.addPublication(
         { username: newUsername, data: newFishData, caption: this.caption }).subscribe();}});
-    
+    this.router.navigate(['/feed']);
   }
 }
