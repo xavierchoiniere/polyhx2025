@@ -1,16 +1,20 @@
-import { IsString, IsNotEmpty, IsObject } from "class-validator";
+import { IsString, IsNotEmpty, IsObject, IsOptional } from "class-validator";
 import { FishDto } from "./fish.dto";
 
 export class DatasetDto {
+  @IsOptional()
+  @IsString()
+  _id?: string;
+
   @IsString()
   @IsNotEmpty()
   username: string;
 
   @IsString()
   @IsNotEmpty()
-  name: string;
+  title: string;
 
-  @IsObject()
+  @IsString()
   @IsNotEmpty()
-  data: FishDto[];
+  description: string;
 }
