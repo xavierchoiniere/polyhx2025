@@ -9,10 +9,12 @@
             <mat-icon id="no-overflow">add</mat-icon>
             <span>Post</span>
         </button>
-        <button>
-            <mat-icon id="no-overflow">folder</mat-icon>
-            Search fish data
-        </button>
+        @if (isScientist) {
+            <button>
+                <mat-icon id="no-overflow">folder</mat-icon>
+                Search fish data
+            </button>
+        }
         <button (click)="openAccount()">
             <mat-icon id="no-overflow" >account_circle</mat-icon>
             User name?
