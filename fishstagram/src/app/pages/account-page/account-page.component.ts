@@ -58,8 +58,6 @@ export class AccountPageComponent {
     }
   ];
 
-  publications: Publication[] = [];
-
   onToggleChange(event: any) {
     this.currentScreen = event.value;
   }
