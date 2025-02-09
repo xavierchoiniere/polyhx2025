@@ -27,6 +27,9 @@ import { Router } from '@angular/router';
     openPost(){
       this.router.navigate(['/post']);
     }
+    openStats(){
+      this.router.navigate(['/main-stats']);
+    }
     openAccount(){
       this.router.navigate(['/account']);
     }
