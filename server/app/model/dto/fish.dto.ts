@@ -7,15 +7,13 @@ export class FishDto {
   _id: string;
 
   @IsOptional()
-  @IsString()
+  @IsNumber()
   species?: string;
 
   @IsOptional()
-  @IsString()
   weight?: number;
 
   @IsOptional()
-  @IsString()
   length?: number;
 
   @IsNumber()
