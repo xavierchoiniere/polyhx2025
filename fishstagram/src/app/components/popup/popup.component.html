@@ -1,18 +1,19 @@
-<h2 mat-dialog-title>Enter Username and Title</h2>
-<mat-dialog-content>
-  <mat-form-field appearance="fill">
-    <mat-label>Username</mat-label>
-    <input matInput [(ngModel)]="username" />
+<h2 mat-dialog-title>Create new dataset</h2>
+<mat-dialog-content class="dialog-content">
+  <mat-form-field appearance="fill" class="title-field">
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="title" placeholder="Title" />
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Title</mat-label>
-    <input matInput [(ngModel)]="title" />
+  <mat-form-field appearance="fill" class="description-field">
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="description" placeholder="Description" />
   </mat-form-field>
 </mat-dialog-content>
 
-<mat-dialog-actions>
+<mat-dialog-actions class="dialog-actions">
   <button mat-button (click)="onCancel()">Cancel</button>
   <button mat-button (click)="onSave()">Save</button>
 </mat-dialog-actions>
+
 

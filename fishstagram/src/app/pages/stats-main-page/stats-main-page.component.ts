@@ -8,6 +8,7 @@ import { FishTableComponent } from "../../components/fish-table/fish-table.compo
 import { CommunicationService } from '../../services/communication.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { PopupComponent } from '../../components/popup/popup.component';
+import { Dataset } from '@common/dataset';
 
 @Component({
   selector: 'app-stats-main-page',
@@ -25,13 +26,18 @@ export class StatsMainPageComponent {
   startDate: Date = new Date();
   endDate: Date = new Date();
   fishResults: Fish[] = [];
+  dataset: Dataset = {username: '', title: '', description: '', data: this.fishResults};
   openCreation(){
     const dialogRef = this.dialog.open(PopupComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        const { username, title } = result;
-        this.communicationService.saveDataset(result).subscribe();
+        const { title, description } = result;
+        this.dataset.description = result.description;
+        this.dataset.title = result.title;
+        this.dataset.data = this.fishResults;
+        this.dataset.username = sessionStorage.getItem('username') as string;
+        this.communicationService.saveDataset(this.dataset).subscribe();
       }
     });
   }
@@ -47,4 +53,32 @@ export class StatsMainPageComponent {
   onSpeciesInputChange() {
     this.speciesFilter = this.speciesFilterInput.split(' ').filter(species => species.trim().length > 0);
   }
+
+  download() {
+    const header = ['Species', 'Date', 'Latitude', 'Longitude'];
+    
+    const rows = this.fishResults.map(fish => [
+      fish.species, 
+      fish.date ? fish.date.toISOString() : '',
+      fish.latitude, 
+      fish.longitude
+    ]);
+  
+    const csvContent = [
+      header.join(','),
+      ...rows.map(row => row.join(','))
+    ].join('\n');
+  
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  
+    const link = document.createElement('a');
+    
+    if (link.download !== undefined) {
+      const filename = 'fish_data.csv';
+      link.setAttribute('href', URL.createObjectURL(blob));
+      link.setAttribute('download', filename);
+      link.click();
+    }
+  }
+  
 }
