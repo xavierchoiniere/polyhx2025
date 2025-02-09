@@ -26,7 +26,6 @@ export class PopulateService {
   async resetAndPopulateDb(): Promise<void> {
     // await this.userModel.deleteMany({});
     // await this.fishModel.deleteMany({});
-    await this.publicationModel.deleteMany({});
     // await this.datasetModel.deleteMany({});
 
     const users: User[] = [
