@@ -5,5 +5,5 @@ export interface Publication {
   username: string;
   data: Fish;
   caption: string;
-  likes: number;
+  likes?: number;
 }

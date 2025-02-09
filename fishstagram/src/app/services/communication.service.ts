@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '@common/user';
+import { Publication } from '@common/publication';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,9 @@ export class CommunicationService {
       username,
       password,
     });
+  }
+  getAllPublications(): Observable<Publication[]> {
+    return this.http.get<Publication[]>(`${this.apiUrl}/publications`);
   }
 
   getUser(username: string): Observable<User> {

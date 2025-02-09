@@ -1,38 +1,36 @@
-<div class="container">
-    <div class="dashboard">
-      @switch (currentScreen) {
-        @case ('posts') {
-          <div class="card">
-            <h2>My Posts</h2>
-            <p>View and manage your latest posts here.</p>
-          </div>
-        }
-        @case ('rank') {
-          <div class="card">
-            <h2>My Rank</h2>
-            <p>Check your ranking in the community.</p>
-          </div>
-        }
-        @case ('datasets') {
-          <div class="card">
-            <h2>My Datasets</h2>
-            <p>Manage and access your datasets easily.</p>
-          </div>
-        }
+<div class="header">
+  <img src="/logo.png" alt="Logo" class="logo">
+  <h1 class="tab-title">{{ currentScreen }}</h1>
+</div>
+
+<div class="content">
+  @if (currentScreen === 'Posts') {
+    <div class="posts-container">
+      @for (pub of publications; track pub) {
+        <mat-card class="card" appearance="outlined">
+          <mat-card-header>
+            <mat-card-title>{{ pub.username }}</mat-card-title>
+            <mat-card-subtitle>{{ pub.data.date | date: 'dd MMM yyyy, h:mm a' }}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>{{ pub.data.species }}</p>
+            <p>{{ pub.data.length }}</p>
+            <p>{{ pub.data.weight }}</p>
+            <p>{{ pub.caption }}</p>
+          </mat-card-content>
+        </mat-card>
       }
     </div>
+  }
+</div>
 
-    <div class="toggle-container">
-        <mat-button-toggle-group
-            [value]="currentScreen"
-            (change)="onToggleChange($event)"
-            aria-label="Screen Selection"
-        >
-            <mat-button-toggle value="posts">Posts</mat-button-toggle>
-            <mat-button-toggle value="rank">Rank</mat-button-toggle>
-            @if (isScientist) {
-              <mat-button-toggle value="datasets">Datasets</mat-button-toggle>
-            }
-        </mat-button-toggle-group>
-    </div>
+<div class="bottom-bar">
+  <mat-button-toggle-group [value]="currentScreen" (change)="onToggleChange($event)">
+    <mat-button-toggle value="Posts">Posts</mat-button-toggle>
+    <mat-button-toggle value="Rank">Rank</mat-button-toggle>
+    @if (isScientist) {
+      <mat-button-toggle value="Datasets">Datasets</mat-button-toggle>
+    }
+  </mat-button-toggle-group>
 </div>

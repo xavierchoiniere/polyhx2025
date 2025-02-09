@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './login-page.component.css',
 })
 export class LoginPageComponent {
-  user = '';
+  username = '';
   password = '';
   constructor(
     private router: Router,
@@ -20,12 +20,12 @@ export class LoginPageComponent {
   ) {}
 
   connect() {
-    this.communicationService.login(this.user, this.password).subscribe({
+    this.communicationService.login(this.username, this.password).subscribe({
       next: (response) => {
         if (response) {
           this.router.navigate(['/feed']);
         } else {
-          this.snackBar.open('Wrong password.', 'Close', { duration: 3000 });
+          this.snackBar.open('Wrong username or password.', 'Close', { duration: 3000 });
         }
       },
       error: (error) => {

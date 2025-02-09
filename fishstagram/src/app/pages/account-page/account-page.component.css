@@ -1,33 +1,89 @@
-.container {
+/* Reset default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header bar */
+  .header {
+    display: flex;
+    align-items: center;
+    background-color: #808080;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .header .logo {
+    height: 40px; /* Adjust based on your logo size */
+  }
+  
+  .header .tab-title {
+    margin: 0 auto;
+    color: white;
+    font-size: 1.5rem;
+    transform: translateX(-20px); /* Adjust this value as needed */
+  }
+  
+  
+  /* Content area */
+  .content {
+    padding-top: 70px; /* Offset for the fixed header */
+    padding-bottom: 70px; /* Offset for the fixed bottom bar */
+    height: calc(100vh - 140px); /* Full height minus header and bottom bar */
+    overflow-y: auto; /* Enable scrolling */
+  }
+  
+  /* Posts container */
+  .posts-container {
     display: flex;
     flex-direction: column;
-    height: 100vh; 
-    position: relative;
-}
-
-.dashboard {
-    flex: 1; 
+    align-items: center;
+    gap: 20px;
     padding: 20px;
-}
-
-.toggle-container {
+  }
+  
+  /* Card styling */
+  .card {
+    max-width: 300px;
+    width: 100%;
+    margin: 0;
+  }
+  
+  .card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .card-actions p {
+    margin: 0;
+  }
+  
+  /* Bottom bar */
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
-    position: absolute; 
-    bottom: 20px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    background-color: white; 
-    padding: 10px;
-    border-radius: 8px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-}
-
-.mat-button-toggle-group {
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-}
-
-.mat-button-toggle {
-    padding: 0 16px; 
-}
+  }
+  
+  .mat-button-toggle-group {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .mat-button-toggle {
+    padding: 0 16px;
+  }
