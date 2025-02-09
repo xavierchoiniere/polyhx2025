@@ -1,27 +1,25 @@
-<div class="header">
-  <img src="/logo.png" alt="Logo" class="logo">
-  <h1 class="tab-title">{{ currentScreen }}</h1>
-</div>
+<toolbar></toolbar>
+<toolbar></toolbar>
 
 <div class="content">
   @switch (currentScreen) {
     @case ('Publications') {
       <div class="publications-container">
-        @for (pub of publications; track pub) {
+        @for (pub of publications;  track pub){
           <mat-card class="card" appearance="outlined">
-            <mat-card-header>
-              <mat-card-title>{{pub.username}}</mat-card-title>
-              <mat-card-subtitle>{{ pub.data.date | date: 'dd MMM yyyy, h:mm a' }}</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src={{pub.data.imageUrl}} alt="Photo unavailable">
-            <mat-card-content>
-            <p>{{pub.data.species ? pub.data.species : ''}}</p>
-            <p>{{pub.data.length ? pub.data.length + ' cm' : ''}}</p>
-            <p>{{pub.data.weight ? pub.data.weight + ' kg' : ''}}</p>
-            <p>{{pub.caption}}</p>
-            </mat-card-content>
-          </mat-card>
-        }
+              <mat-card-header>
+                <mat-card-title>{{pub.username}}</mat-card-title>
+                <mat-card-subtitle>{{ pub.data.date | date: 'dd MMM yyyy, h:mm a' }}</mat-card-subtitle>
+              </mat-card-header>
+              <img mat-card-image src={{pub.data.imageUrl}} alt="Photo unavailable">
+              <mat-card-content>
+              <p class="info"><mat-icon>set_meal</mat-icon>{{pub.data.species ? pub.data.species : ''}}</p>
+              <p class="info"><mat-icon>straighten</mat-icon>{{pub.data.length ? pub.data.length + ' cm' : ''}}</p>
+              <p class="info"><mat-icon>scale</mat-icon>{{pub.data.weight ? pub.data.weight + ' kg' : ''}}</p>
+              <p>{{pub.caption}}</p>
+              </mat-card-content>
+            </mat-card>
+          }
       </div>
     }
     @case ('Rank') {
@@ -38,7 +36,8 @@
       </div>
     }
     @case ('Datasets') {
-      
+      <app-dataset-table></app-dataset-table>
+      <!-- Dataset screen content goes here -->
     }
     @default {
       console.error('Invalid screen');
@@ -51,7 +50,7 @@
     <mat-button-toggle value="Publications">Publications</mat-button-toggle>
     <mat-button-toggle value="Rank">Rank</mat-button-toggle>
     @if (isScientist) {
-      <mat-button-toggle (click)="onDatasetClick()" value="Datasets">Datasets</mat-button-toggle>
+      <mat-button-toggle value="Datasets">Datasets</mat-button-toggle>
     }
   </mat-button-toggle-group>
 </div>

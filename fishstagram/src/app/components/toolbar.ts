@@ -29,4 +29,7 @@ import { Router } from '@angular/router';
     openAccount(){
       this.router.navigate(['/account']);
     }
+    openFeed(){
+      this.router.navigate(['/feed']);
+    }
   }
