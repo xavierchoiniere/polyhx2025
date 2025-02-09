@@ -6,10 +6,6 @@
     </div>
     
     <div class="button-container">
-        <button (click)="logout()">
-            <mat-icon id="no-overflow">logout</mat-icon>
-            <span>Logout</span>
-        </button>
         <button class="post" (click)="openPost()">
             <mat-icon id="no-overflow">add</mat-icon>
             <span>Post</span>
@@ -20,6 +16,10 @@
                 Search fish data
             </button>
         }
+        <button (click)="logout()">
+            <mat-icon id="no-overflow">logout</mat-icon>
+            <span>Logout</span>
+        </button>
         <button (click)="openAccount()">
             <mat-icon id="no-overflow" >account_circle</mat-icon>
             {{ userName }}
