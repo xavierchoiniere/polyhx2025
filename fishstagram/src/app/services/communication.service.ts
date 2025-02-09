@@ -42,7 +42,7 @@ export class CommunicationService {
   }
 
   getDatasetsByUser(username: string): Observable<Dataset[]> {
-    return this.http.get<Dataset[]>(`${this.apiUrl}/datasets/user/${username}`);
+    return this.http.get<Dataset[]>(`${this.apiUrl}/datasets/${username}`);
   }
 
   addPublication(publication: Publication): Observable<Publication> {
