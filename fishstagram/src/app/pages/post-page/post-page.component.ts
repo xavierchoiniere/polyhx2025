@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommunicationService } from '../../services/communication.service';
 
 @Component({
   selector: 'app-post-page',
@@ -10,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 export class PostPageComponent {
   location: string = '';
   imageUrl: string | ArrayBuffer | null = null;
+  constructor(private communcationService: CommunicationService) {}  // Inject ApiService
+
   isImage(): boolean {
     return this.imageUrl !== null;
   }
@@ -46,5 +49,22 @@ export class PostPageComponent {
     }
   }
 
-  post(){}
+  post() {
+    if (!this.location) {
+      alert('Location is required.');
+      return;
+    }
+
+    // Call the postData method from ApiService
+    this.communcationService.postPublishData(this.location, this.imageUrl).subscribe({
+      next: (response) => {
+        console.log('Data posted successfully:', response);
+        alert('Post successful!');
+      },
+      error: (error) => {
+        console.error('Error occurred while posting data:', error);
+        alert('An error occurred while posting data. Please try again.');
+      },
+    });
+  }
 }
