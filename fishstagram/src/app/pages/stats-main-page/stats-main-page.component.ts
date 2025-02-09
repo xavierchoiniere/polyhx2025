@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Toolbar } from "../../components/toolbar";
 import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stats-main-page',
@@ -10,6 +11,10 @@ import { MatIcon } from '@angular/material/icon';
   styleUrl: './stats-main-page.component.css'
 })
 export class StatsMainPageComponent {
+  constructor(private router: Router) {}
   searchQuery = '';
-  selectedFilter = '';
+
+  openCreation(){
+    this.router.navigate(['/creation-stats']);
+  }
 }
