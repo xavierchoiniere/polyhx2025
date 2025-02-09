@@ -1,23 +1,19 @@
-// api.service.ts
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from '@common/user'
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommunicationService {
-  private apiUrl = 'https://example.com/api';  // Replace with your API URL
+  private readonly apiUrl: string = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {}
 
-  // Method to get data from API
-//   getData(endpoint: string): Observable<any> {
-//     return this.http.get<any>(`${this.apiUrl}/${endpoint}`);
-//   }
-
-  // Method to post data to API
-  postPublishData(endpoint: string, data: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/${endpoint}`, data);
+  signup(user: User): Observable<User> {
+    return this.http.post<User>('${this.apiUrl}/signup', user);
   }
+
 }
