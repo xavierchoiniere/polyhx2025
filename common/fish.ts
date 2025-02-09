@@ -1,5 +1,5 @@
 export interface Fish {
-    _id: string;
+    _id?: string;
     species?: string;
     weight?: number;
     length?: number;

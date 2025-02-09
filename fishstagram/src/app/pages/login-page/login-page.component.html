@@ -1,20 +1,24 @@
 
 <div class="header">
     <div class="container">
-        <div class="logo-container">
-            <img src="/logo.png" alt="Logo" class="logo">
-        </div>
-        <div>
-            <input [(ngModel)]="username" (keydown.enter)="focusPassword()" type="username"  placeholder="Enter your username" />
-        </div>
-        <div>
-            <input [(ngModel)]="password" (keydown.enter)="connect()" type="password" placeholder="Enter your password" />
-        </div>
-        <div>
-            <button (click)="connect()">Connect</button>
-        </div>
-        <div>
-            <button (click)="signUp()"> Sign up!</button>
+
+        <div class="login-card">
+            <div class="logo-container">
+                <img src="/logo.png" alt="Logo" class="logo">
+            </div>
+            <h1 class="app-name"> Fishtagram </h1>
+            <div>
+                <input [(ngModel)]="username" (keydown.enter)="focusPassword()" type="username"  placeholder="Enter your username" />
+            </div>
+            <div>
+                <input [(ngModel)]="password" (keydown.enter)="connect()" type="password" placeholder="Enter your password" />
+            </div>
+            <div>
+                <button class="login-button" (click)="connect()">Connect</button>
+            </div>
+            <div>
+                <button class="login-button" (click)="signUp()"> Sign up!</button>
+            </div>
         </div>
     </div>
     

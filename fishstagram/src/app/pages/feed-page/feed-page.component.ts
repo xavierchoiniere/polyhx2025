@@ -8,10 +8,11 @@ import { Publication } from '@common/publication'
 import { Fish } from '@common/fish'
 import { DatePipe } from '@angular/common';
 import { CommunicationService } from '../../services/communication.service';
+import { Toolbar } from "../../components/toolbar";
 
 @Component({
   selector: 'app-feed-page',
-  imports: [MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule, DatePipe],
+  imports: [MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule, DatePipe, Toolbar],
   templateUrl: './feed-page.component.html',
   styleUrl: './feed-page.component.css'
 })
@@ -21,10 +22,5 @@ export class FeedPageComponent {
   ngOnInit(){
     this.communicationService.getAllPublications().subscribe({next: (response) => {this.publications = response}});
   }
-  openPost(){
-    this.router.navigate(['/post']);
-  }
-  openAccount(){
-    this.router.navigate(['/account']);
-  }
+
 }

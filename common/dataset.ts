@@ -1,7 +1,7 @@
 import { Fish } from './fish';
 
 export interface Dataset {
-    _id: string;
+    _id?: string;
     username: string;
     title: string;
     description: string;
