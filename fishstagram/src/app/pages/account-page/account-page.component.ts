@@ -10,10 +10,11 @@ import { User } from '@common/user';
 import { Dataset } from '@common/dataset';
 import { Toolbar } from "../../components/toolbar";
 import { DatasetTableComponent } from "../../components/data-set-table/data-set-table.component";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-account-page',
-  imports: [MatIconModule, MatButtonToggleModule, MatCardModule, DatePipe, MatListModule, Toolbar, DatasetTableComponent],
+  imports: [MatIconModule, MatButtonToggleModule, MatCardModule, DatePipe, MatListModule, Toolbar, DatasetTableComponent, MatProgressBarModule],
   templateUrl: './account-page.component.html',
   styleUrls: ['./account-page.component.css'],
 })

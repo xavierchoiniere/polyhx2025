@@ -26,6 +26,7 @@ export class LoginPageComponent {
           this.router.navigate(['/feed']);
           sessionStorage.setItem('username', this.username);
           sessionStorage.setItem('isScientist', response.isScientist.toString());
+          localStorage.setItem('loginTime', Date.now().toString());
         } else {
           this.snackBar.open('Wrong username or password.', 'Close', { duration: 3000 });
         }

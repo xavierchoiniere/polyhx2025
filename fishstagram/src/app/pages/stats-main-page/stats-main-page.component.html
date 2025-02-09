@@ -1,1 +1,44 @@
-<p>stats-main-page works!</p>
+<toolbar></toolbar>
+<div class="filters">
+    <div class="filter-container">
+        <div class="filter-section">
+            <label for="species">Species</label>
+            <input type="text" id="species" placeholder="Enter species (space separated)" [(ngModel)]="speciesFilterInput" (input)="onSpeciesInputChange()" />
+          </div>
+          
+  
+      <div class="filter-section">
+        <label for="latitude">Latitude</label>
+        <input type="number" id="latitude" placeholder="Enter Latitude" [(ngModel)]="latitude" />
+      </div>
+  
+      <div class="filter-section">
+        <label for="longitude">Longitude</label>
+        <input type="number" id="longitude" placeholder="Enter Longitude" [(ngModel)]="longitude" />
+      </div>
+  
+      <div class="filter-section">
+        <label for="radius">Radius (in m)</label>
+        <input type="number" id="radius" placeholder="Enter Radius" [(ngModel)]="radius" />
+      </div>
+    </div>
+  
+    <div class="date-container">
+      <div class="filter-section">
+        <label for="start-date">Start Date</label>
+        <input type="date" id="start-date" [(ngModel)]="startDate" />
+      </div>
+  
+      <div class="filter-section">
+        <label for="end-date">End Date</label>
+        <input type="date" id="end-date" [(ngModel)]="endDate" />
+      </div>
+    </div>
+    <app-fish-table [fishResults]="fishResults"></app-fish-table>
+    <div class="action-buttons">
+      <button (click)="search()">Search</button>
+      <button class="add-btn" (click)="openCreation()">Add Dataset</button>
+      <button class="download-btn" (click)="download()">Download</button>
+    </div>
+  </div>
+  

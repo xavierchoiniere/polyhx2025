@@ -7,8 +7,9 @@ html {
     background-color: transparent;
     padding-top: 64px;
     background: 
-    linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%), /* First gradient */
-    linear-gradient(120deg, rgba(0,172,193,0.6) 0%, rgba(0,119,255,0.4) 100%); /* Second gradient */
+    linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%), 
+    linear-gradient(120deg, rgba(0,172,193,0.6) 0%, rgba(0,119,255,0.4) 100%); 
+    background-size: 200% 200%;
 }
 
 .card {
@@ -31,6 +32,6 @@ html {
     display: flex;
     align-items: center;
     gap: 8px;
-  }
+}
 
   

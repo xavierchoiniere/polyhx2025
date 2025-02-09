@@ -9,6 +9,8 @@ import {
 } from "../model/schema/publication.schema";
 import { Dataset, DatasetDocument } from "../model/schema/dataset.schema";
 
+const dirpath = "../../assets/photos";
+
 @Injectable()
 export class PopulateService {
   constructor(
@@ -22,10 +24,9 @@ export class PopulateService {
   }
 
   async resetAndPopulateDb(): Promise<void> {
-    await this.userModel.deleteMany({});
-    await this.fishModel.deleteMany({});
-    await this.publicationModel.deleteMany({});
-    await this.datasetModel.deleteMany({});
+    // await this.userModel.deleteMany({});
+    // await this.fishModel.deleteMany({});
+    // await this.datasetModel.deleteMany({});
 
     const users: User[] = [
       {
@@ -102,100 +103,110 @@ export class PopulateService {
 
     const fish: Fish[] = [
       {
-        species: "species1",
+        species: "Salmon",
         weight: 1,
         length: 10,
-        longitude: -73.935242,
-        latitude: 40.73061,
-        imageUrl: "",
+        longitude: -123.3656,
+        latitude: 48.4284,
+        imageUrl: `${dirpath}/1.jpeg`,
         date: new Date(),
       },
       {
-        species: "species2",
+        species: "Trout",
         weight: 2,
         length: 20,
-        longitude: -73.935242,
-        latitude: 40.73061,
-        imageUrl: "",
+        longitude: -122.4194,
+        latitude: 37.7749,
+        imageUrl: `${dirpath}/2.jpeg`,
         date: new Date(),
       },
       {
-        species: "species3",
+        species: "Bass",
         weight: 3,
         length: 30,
-        longitude: -73.935242,
-        latitude: 40.73061,
-        imageUrl: "",
+        longitude: -74.006,
+        latitude: 40.7128,
+        imageUrl: `${dirpath}/3.jpeg`,
         date: new Date(),
       },
       {
-        species: "species4",
+        species: "Catfish",
         weight: 4,
         length: 40,
-        longitude: -73.935242,
-        latitude: 40.73061,
-        imageUrl: "",
+        longitude: -118.2437,
+        latitude: 34.0522,
+        imageUrl: `${dirpath}/4.jpeg`,
         date: new Date(),
       },
       {
-        species: "species5",
+        species: "Pike",
         weight: 5,
         length: 50,
-        longitude: -73.935242,
-        latitude: 40.73061,
-        imageUrl: "",
+        longitude: -87.6298,
+        latitude: 41.8781,
+        imageUrl: `${dirpath}/5.jpeg`,
         date: new Date(),
       },
       {
-        species: "species6",
+        species: "Perch",
         weight: 6,
         length: 60,
-        longitude: -73.935242,
-        latitude: 40.73061,
-        imageUrl: "",
+        longitude: -95.3698,
+        latitude: 29.7604,
+        imageUrl: `${dirpath}/6.jpeg`,
         date: new Date(),
       },
       {
-        species: "species7",
+        species: "Walleye",
         weight: 7,
         length: 70,
-        longitude: -73.935242,
-        latitude: 40.73061,
-        imageUrl: "",
+        longitude: -80.1918,
+        latitude: 25.7617,
+        imageUrl: `${dirpath}/7.jpeg`,
         date: new Date(),
       },
       {
-        species: "species8",
+        species: "Carp",
         weight: 8,
         length: 80,
-        longitude: -73.935242,
-        latitude: 40.73061,
-        imageUrl: "",
+        longitude: -157.8583,
+        latitude: 21.3069,
+        imageUrl: `${dirpath}/8.jpeg`,
         date: new Date(),
       },
       {
-        species: "species9",
+        species: "Bluegill",
         weight: 9,
         length: 90,
-        longitude: -73.935242,
-        latitude: 40.73061,
-        imageUrl: "",
+        longitude: -149.9003,
+        latitude: 61.2181,
+        imageUrl: `${dirpath}/9.jpeg`,
         date: new Date(),
       },
       {
-        species: "species10",
+        species: "Crappie",
         weight: 10,
         length: 100,
-        longitude: -73.935242,
-        latitude: 40.73061,
-        imageUrl: "",
+        longitude: -77.0369,
+        latitude: 38.9072,
+        imageUrl: `${dirpath}/10.jpeg`,
         date: new Date(),
       },
     ];
 
     const publications: Publication[] = [
-      { username: "user1", data: fish[0], caption: "Great catch!", likes: 10 },
-      { username: "user2", data: fish[1], caption: "Amazing fish!", likes: 20 },
+      {
+        username: "user1",
+        data: fish[0],
+        caption: "Great catch!",
+        likes: 10,
+      },
+      {
+        username: "user2",
+        data: fish[1],
+        caption: "Amazing fish!",
+        likes: 20,
+      },
       {
         username: "user3",
         data: fish[2],
@@ -208,7 +219,12 @@ export class PopulateService {
         caption: "Caught this today!",
         likes: 40,
       },
-      { username: "user5", data: fish[4], caption: "What a catch!", likes: 50 },
+      {
+        username: "user5",
+        data: fish[4],
+        caption: "What a catch!",
+        likes: 50,
+      },
       {
         username: "user6",
         data: fish[5],
@@ -256,15 +272,15 @@ export class PopulateService {
       },
       {
         username: "user1",
-        title: "dataset2",
-        description: "description2",
+        title: "dataset3",
+        description: "description3",
         data: [fish[6], fish[7], fish[8]],
-      }
+      },
     ];
 
-    await this.userModel.insertMany(users);
-    await this.fishModel.insertMany(fish);
+    // await this.userModel.insertMany(users);
+    // await this.fishModel.insertMany(fish);
     await this.publicationModel.insertMany(publications);
-    await this.datasetModel.insertMany(datasets);
+    // await this.datasetModel.insertMany(datasets);
   }
 }

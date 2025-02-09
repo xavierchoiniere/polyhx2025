@@ -11,14 +11,18 @@
             <span>Post</span>
         </button>
         @if (isScientist) {
-            <button>
+            <button (click)="openStats()">
                 <mat-icon id="no-overflow">folder</mat-icon>
                 Search fish data
             </button>
         }
+        <button (click)="logout()">
+            <mat-icon id="no-overflow">logout</mat-icon>
+            <span>Logout</span>
+        </button>
         <button (click)="openAccount()">
             <mat-icon id="no-overflow" >account_circle</mat-icon>
-            User name?
+            {{ userName }}
         </button>
     </div>
 </mat-toolbar>

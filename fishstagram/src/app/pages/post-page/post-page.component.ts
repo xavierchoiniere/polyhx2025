@@ -76,7 +76,11 @@ export class PostPageComponent {
     const newFishData = {... this.fishData, date: new Date(), imageUrl: this.imageUrl as string};
     this.communicationService.createFish(newFishData).subscribe(
       {next: () => {this.communicationService.addPublication(
-        { username: newUsername, data: newFishData, caption: this.caption }).subscribe();}});
-    this.router.navigate(['/feed']);
+        { username: newUsername, data: newFishData, caption: this.caption }).subscribe(
+          {next: () => {  this.communicationService.getUser(newUsername).subscribe({
+            next: (user) => {
+              this.communicationService.updateUserLevel(newUsername, user.level + 1).subscribe({next: () => {this.router.navigate(['/feed']);}});
+              
+            }})}})}})
   }
 }
