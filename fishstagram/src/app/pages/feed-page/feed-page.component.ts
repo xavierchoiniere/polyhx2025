@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Publication } from '@common/publication'
 import { Fish } from '@common/fish'
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 import { CommunicationService } from '../../services/communication.service';
 import { Toolbar } from "../../components/toolbar";
 
@@ -20,12 +20,11 @@ export class FeedPageComponent {
   constructor(private router: Router, private communicationService: CommunicationService) {}
   publications: Publication[] = [];
   ngOnInit(){
-    this.communicationService.getAllPublications().subscribe({next: (response) => {this.publications = response}});
-    this.publications.sort((a, b) => {
-      const dateA = new Date(a.data.date);
-      const dateB = new Date(b.data.date);
-      return dateB.getTime() - dateA.getTime();
-    });
+    this.communicationService.getAllPublications().subscribe({next: (response) => {
+      this.publications = response.sort((a, b) => {
+        return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+      });
+    }});
   }
-
 }
+
