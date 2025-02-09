@@ -244,30 +244,22 @@ export class PopulateService {
     const datasets: Dataset[] = [
       {
         username: "user1",
-        name: "Dataset 1 - Species 1",
-        data: fish.filter((f) => f.species === "species1"),
-        createdAt: new Date(),
+        title: "dataset1",
+        description: "description1",
+        data: [fish[0], fish[1], fish[2]],
       },
       {
         username: "user1",
-        name: "Dataset 2 - Weight > 5",
-        data: fish.filter((f) => f.weight > 5),
-        createdAt: new Date(),
+        title: "dataset2",
+        description: "description2",
+        data: [fish[3], fish[4], fish[5]],
       },
       {
         username: "user1",
-        name: "Dataset 3 - Length < 50",
-        data: fish.filter((f) => f.length < 50),
-        createdAt: new Date(),
-      },
-      {
-        username: "user1",
-        name: "Dataset 4 - Species 2 and 3",
-        data: fish.filter(
-          (f) => f.species === "species2" || f.species === "species3"
-        ),
-        createdAt: new Date(),
-      },
+        title: "dataset2",
+        description: "description2",
+        data: [fish[6], fish[7], fish[8]],
+      }
     ];
 
     await this.userModel.insertMany(users);

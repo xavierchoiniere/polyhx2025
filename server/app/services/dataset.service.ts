@@ -19,4 +19,8 @@ export class DatasetService {
   async getDatasetsByUsername(username: string): Promise<Dataset[]> {
     return this.datasetModel.find({ username }).exec();
   }
+
+  async getAllDatasets(): Promise<Dataset[]> {
+    return this.datasetModel.find().exec();
+  }
 }

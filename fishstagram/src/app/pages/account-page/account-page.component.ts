@@ -9,10 +9,11 @@ import { MatListModule } from '@angular/material/list';
 import { User } from '@common/user';
 import { Dataset } from '@common/dataset';
 import { Toolbar } from "../../components/toolbar";
+import { DatasetTableComponent } from "../../components/data-set-table/data-set-table.component";
 
 @Component({
   selector: 'app-account-page',
-  imports: [MatIconModule, MatButtonToggleModule, MatCardModule, DatePipe, MatListModule, Toolbar],
+  imports: [MatIconModule, MatButtonToggleModule, MatCardModule, DatePipe, MatListModule, Toolbar, DatasetTableComponent],
   templateUrl: './account-page.component.html',
   styleUrls: ['./account-page.component.css'],
 })
@@ -42,14 +43,13 @@ export class AccountPageComponent {
         this.publications = response;
       }
     });
-  }
-
-  onDatasetClick() {
-    this.communicationService.getDatasetsByUser(this.username).subscribe({
-      next: (response) => {
-        this.datasets = response;
-      }
-    });
+    if (this.isScientist) {
+      this.communicationService.getDatasetsByUser(this.username).subscribe({
+        next: (response) => {
+          this.datasets = response;
+        }
+      });
+    }
   }
 
   onToggleChange(event: any) {
@@ -60,6 +60,4 @@ export class AccountPageComponent {
     if(username === sessionStorage.getItem('username')) return true;
     return false
   }
-
-  
 }
