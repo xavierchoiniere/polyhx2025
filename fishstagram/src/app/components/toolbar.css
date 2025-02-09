@@ -89,6 +89,10 @@ button {
     padding: 8px 16px;
 }
 
+.logo-container button{
+    background: none;
+}
+
 button:hover {
     background-color: #5786b5;
 }
