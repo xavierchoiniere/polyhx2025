@@ -15,8 +15,8 @@ export class Publication {
   @Prop({ required: true })
   caption: string;
 
-  @Prop({ required: true })
-  likes: number;
+  @Prop()
+  likes?: number;
 }
 
 export const PublicationSchema = SchemaFactory.createForClass(Publication);
