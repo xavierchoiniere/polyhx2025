@@ -15,6 +15,8 @@ import {
 import { PublicationService } from "./services/publication.service";
 import { PopulateService } from "./services/populate.service";
 import { Dataset, DatasetSchema } from "./model/schema/dataset.schema";
+import { DatasetController } from "./controllers/dataset.controller";
+import { DatasetService } from "./services/dataset.service";
 
 @Module({
   imports: [
@@ -33,13 +35,14 @@ import { Dataset, DatasetSchema } from "./model/schema/dataset.schema";
       { name: Dataset.name, schema: DatasetSchema },
     ]),
   ],
-  controllers: [UserController, FishController, PublicationController],
+  controllers: [UserController, FishController, PublicationController,DatasetController],
   providers: [
     Logger,
     UserService,
     FishService,
     PublicationService,
     PopulateService,
+    DatasetService,
   ],
 })
 export class AppModule {}
