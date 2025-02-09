@@ -25,8 +25,15 @@ export class CommunicationService {
   getAllPublications(): Observable<Publication[]> {
     return this.http.get<Publication[]>(`${this.apiUrl}/publications`);
   }
+  getPublicationsByUser(username: string): Observable<Publication[]> {
+    return this.http.get<Publication[]>(`${this.apiUrl}/publications/${username}`);
+  }
 
   getUser(username: string): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/users/${username}`);
+  }
+
+  addPublication(publication: Publication): Observable<Publication> {
+    return this.http.post<Publication>(`${this.apiUrl}/publications`, publication);
   }
 }
