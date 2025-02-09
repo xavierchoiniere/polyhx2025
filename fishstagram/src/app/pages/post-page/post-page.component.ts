@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommunicationService } from '../../services/communication.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-post-page',
@@ -11,7 +12,7 @@ import { CommunicationService } from '../../services/communication.service';
 export class PostPageComponent {
   location: string = '';
   imageUrl: string | ArrayBuffer | null = null;
-  constructor(private communcationService: CommunicationService) {}  // Inject ApiService
+  constructor(private communcationService: CommunicationService, private snackBar: MatSnackBar) {}
 
   isImage(): boolean {
     return this.imageUrl !== null;
@@ -21,15 +22,14 @@ export class PostPageComponent {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e: any) => {
-        console.log('File read successfully:', e.target.result);
         this.imageUrl = e.target.result;
       };
       reader.readAsDataURL(file);
       reader.onerror = (error) => {
-        alert('An error occurred while reading the file. Please try again.');
+        this.snackBar.open('An error occurred while reading the file. Please try again.', 'Close', {duration:3000});
       };
     }
-    else { alert('No file selected. Please choose an image file.'); }
+    else { this.snackBar.open('No file selected. Please choose an image file.', 'Close', {duration:3000}); }
   }
 
   getLocation() {
@@ -41,30 +41,18 @@ export class PostPageComponent {
           this.location = `Latitude: ${latitude}, Longitude: ${longitude}`;
         },
         (error) => {
-          alert('Could not retrieve location.');
+          this.snackBar.open('Could not retrieve location.', 'Close', {duration:3000});
         }
       );
     } else {
-      alert('Geolocation is not supported by this browser.');
+      this.snackBar.open('Geolocation is not supported by this browser.', 'Close',{duration:3000});
     }
   }
 
   post() {
     if (!this.location) {
-      alert('Location is required.');
+      this.snackBar.open('Location is required.','Close',{duration:3000});
       return;
     }
-
-    // Call the postData method from ApiService
-  //   this.communcationService.postPublishData(this.location, this.imageUrl).subscribe({
-  //     next: (response) => {
-  //       console.log('Data posted successfully:', response);
-  //       alert('Post successful!');
-  //     },
-  //     error: (error) => {
-  //       console.error('Error occurred while posting data:', error);
-  //       alert('An error occurred while posting data. Please try again.');
-  //     },
-  //   });
   }
 }

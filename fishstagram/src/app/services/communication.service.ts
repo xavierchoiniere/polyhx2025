@@ -1,8 +1,7 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError  } from 'rxjs';
-import { User } from '@common/user'
+import { Observable } from 'rxjs';
+import { User } from '@common/user';
 
 @Injectable({
   providedIn: 'root',
@@ -13,15 +12,17 @@ export class CommunicationService {
   constructor(private http: HttpClient) {}
 
   signup(user: User): Observable<User> {
-    return this.http.post<User>('${this.apiUrl}/signup', user);
+    return this.http.post<User>(`${this.apiUrl}/users/signup`, user);
   }
-  
-  login(email: string, password: string): Observable<User> {
-    return this.http.post<User>('${this.apiUrl}/login', { email, password });
+
+  login(username: string, password: string): Observable<User> {
+    return this.http.post<User>(`${this.apiUrl}/users/login`, {
+      username,
+      password,
+    });
   }
 
   getUser(username: string): Observable<User> {
-    return this.http.get<User>('${this.baseUrl}/account/${username}');
+    return this.http.get<User>(`${this.apiUrl}/users/${username}`);
   }
-
 }
