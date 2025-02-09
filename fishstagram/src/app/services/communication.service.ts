@@ -52,4 +52,8 @@ export class CommunicationService {
   createFish(fish: Fish): Observable<Fish>{
     return this.http.post<Fish>(`${this.apiUrl}/fish/create`, fish)
   }
+
+  getSpeciesAI(longitude:number,latitude:number): Observable<string> {
+    return this.http.post<string>(`${this.apiUrl}/ai`,  {longitude,latitude})
+  }
 }

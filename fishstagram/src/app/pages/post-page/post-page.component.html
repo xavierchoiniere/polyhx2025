@@ -11,6 +11,9 @@
         <input type="text" id="caption" name="caption" [(ngModel)]="caption" placeholder="Enter caption" required>
         <label for="locationInput">Location: </label>
         <input type="text" id="locationInput" name="locationInput" [(ngModel)]="locationInput" placeholder="Enter location" required (click)="getLocation()" >
+        <div>
+            <button (click)="getSpecies(fishData.longitude,fishData.latitude)"> get species </button>
+        </div>
         <label for="species">Species: </label>
         <input type="text" id="species" name="species" [(ngModel)]="fishData.species" placeholder="Enter species" required>
         <label for="size">Size: </label>

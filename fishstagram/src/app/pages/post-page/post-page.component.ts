@@ -55,6 +55,10 @@ export class PostPageComponent {
     }
   }
 
+  getSpecies(longitude:number,latitude:number){
+    return this.communicationService.getSpeciesAI(longitude,latitude).subscribe();
+  }
+
   post() {
     if (!this.locationInput) {
       this.snackBar.open('Location is required.','Close',{duration:3000});
