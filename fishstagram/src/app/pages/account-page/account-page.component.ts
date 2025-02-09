@@ -6,6 +6,7 @@ import { DatePipe } from '@angular/common';
 import { Publication } from '@common/publication'
 import { CommunicationService } from '../../services/communication.service';
 import { MatListModule } from '@angular/material/list';
+import { User } from '@common/user';
 
 @Component({
   selector: 'app-account-page',
@@ -18,19 +19,21 @@ export class AccountPageComponent {
   constructor(private communicationService: CommunicationService) {}
   currentScreen: string = 'Publications'; 
   isScientist: boolean = JSON.parse(sessionStorage.getItem('isScientist') as string);
+  rank: number = 1;
 
   publications: Publication[] = [];
-  leaderboard = [
-    { id: 1, name: 'User One', level: 10 },
-    { id: 2, name: 'User Two', level: 8 },
-    { id: 3, name: 'User Three', level: 7 },
-  ];
+  leaderboard: User[] = [];
 
   ngOnInit() {
     this.communicationService.getPublicationsByUser(sessionStorage.getItem('username') as string).subscribe({
       next: (response) => {
         this.publications = response;
       }});
+    this.communicationService.getPublicationsByUser(sessionStorage.getItem('username') as string).subscribe({
+      next: (response) => {
+        this.publications = response;
+      }});
+  
   }
 
   onToggleChange(event: any) {

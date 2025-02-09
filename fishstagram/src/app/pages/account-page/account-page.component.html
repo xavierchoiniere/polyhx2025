@@ -26,10 +26,11 @@
     }
     @case ('Rank') {
       <div class="rank-container">
-        @for (user of leaderboard; track user.id) {
+        @for (user of leaderboard; track user) {
           <mat-card class="rank-card" appearance="outlined">
             <div class="rank-card-content">
-              <div class="user-name">{{ user.name }}</div>
+              <div class="rank">{{ rank }}</div>
+              <div class="user-name">{{ user.username }}</div>
               <div class="user-level">Level {{ user.level }}</div>
             </div>
           </mat-card>
