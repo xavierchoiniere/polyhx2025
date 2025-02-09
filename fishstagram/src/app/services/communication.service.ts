@@ -52,4 +52,8 @@ export class CommunicationService {
   createFish(fish: Fish): Observable<Fish>{
     return this.http.post<Fish>(`${this.apiUrl}/fish/create`, fish)
   }
+
+  updateUserLevel(username: string, level: number): Observable<User> {
+    return this.http.patch<User>(`${this.apiUrl}/users/${username}/level`, { level });
+  }
 }
