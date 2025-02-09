@@ -5,6 +5,7 @@ import { CommunicationService } from '../../services/communication.service';
 import {User} from '@common/user'
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SignupVerificationService } from '../../services/signup-verification.service';
 
 @Component({
   selector: 'app-signup-page',
@@ -14,11 +15,26 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class SignupPageComponent {
   user: User = {username: '', email: '', password: '', isScientist: false, level: 0}
-  constructor(private router: Router, private communicationService: CommunicationService, private snackBar: MatSnackBar) {}
+  constructor( private signUpService: SignupVerificationService, private snackBar: MatSnackBar) {}
   createAccount(){
-    this.communicationService.signup(this.user).subscribe
-    ({next: ()=>  {this.router.navigate(['/feed']);},
-      error: (errorHttp: HttpErrorResponse)=> this.snackBar.open(errorHttp.message, 'Close', {duration:3000})});
+    const username = this.user.username.trim();
+    if(this.signUpService.checkUsernameExistence(username)){
+      this.snackBar.open('Username already in use, please try another one.', 'Close', {duration:3000})
+      return;
+    }
+    if (!this.signUpService.verifyUsername(username)){
+      this.snackBar.open('Username is invalid, please try another one.', 'Close', {duration:3000})
+      return;
+    }
+    if (!this.signUpService.verifyPassword(this.user.password)){
+      this.snackBar.open('Password is too short, have at least 8 characters.', 'Close', {duration:3000})
+      return;
+    }
+    if (!this.signUpService.verifyEmail(this.user.email as string)){
+      this.snackBar.open('Email is invalid.', 'Close', {duration:3000})
+      return;
+    }
+    this.signUpService.createAccount(this.user);
   }
   focusEmail() {
     const passwordInput = document.querySelector('input[type="email"]') as HTMLInputElement;
