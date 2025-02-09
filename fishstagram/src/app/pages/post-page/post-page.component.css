@@ -3,7 +3,7 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
-    min-height: 100vh; /* Ensure it extends to at least the viewport height */
+    min-height: 100vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,10 +11,10 @@ html {
     background-color: transparent;
 
     background: 
-        linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%), /* First gradient */
-        linear-gradient(120deg, rgba(0,172,193,0.6) 0%, rgba(0,119,255,0.4) 100%); /* Second gradient */
-    color: white; /* Set text color to white */
-    background-size: 200% 200%;
+        linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%), 
+        linear-gradient(120deg, rgba(0,172,193,0.6) 0%, rgba(0,119,255,0.4) 100%);
+    color: white;
+    background-size: 300% 300%;
 }
 
 .container {
@@ -22,23 +22,23 @@ html {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: auto; /* Allow the container to grow based on content */
-    min-height: 75vh; /* Ensure it takes up at least 75% of the viewport height */
+    height: auto; 
+    min-height: 75vh;
     width: 100%;
     max-width: 400px;
-    padding: 20px; /* Add padding to give the container some breathing room */
-    box-sizing: border-box; /* Ensure padding is included in the height calculation */
+    padding: 20px; 
+    box-sizing: border-box; 
 }
 
 .header {
     font-size: 32px;
-    font-weight: bold; /* Make the header text bold */
-    margin-bottom: 20px; /* Add some space below the header */
+    font-weight: bold; 
+    margin-bottom: 20px;
 }
 
 label {
-    font-weight: bold; /* Make label text bold */
-    margin-top: 10px; /* Add some space above each label */
+    font-weight: bold; 
+    margin-top: 10px; 
 }
 
 input {
@@ -47,15 +47,15 @@ input {
     box-sizing: border-box;
     margin: 5px 0;
     border: 1px solid #ccc;
-    border-radius: 25px; /* Round the text fields */
-    background-color: rgba(255, 255, 255, 0.1); /* Add a slight background color for better visibility */
-    color: white; /* Set text color to white */
-    font-weight: bold; /* Make input text bold */
+    border-radius: 25px; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: white; 
+    font-weight: bold;
 }
 
 input::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Style the placeholder text */
-    font-weight: normal; /* Placeholder text is not bold */
+    color: rgba(255, 255, 255, 0.7); 
+    font-weight: normal; 
 }
 
 button {
@@ -64,10 +64,10 @@ button {
     background-color: #519db3;
     color: white;
     border: none;
-    border-radius: 25px; /* Round the button */
+    border-radius: 25px; 
     cursor: pointer;
     margin-top: 10px;
-    font-weight: bold; /* Make button text bold */
+    font-weight: bold; 
 }
 
 button:hover {
@@ -77,5 +77,5 @@ button:hover {
 img {
     max-width: 300px;
     max-height: 300px;
-    margin-top: 10px; /* Add some space above the image */
+    margin-top: 10px; 
 }
