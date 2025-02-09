@@ -1,44 +1,47 @@
-body,
-html {
+body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
-    min-height: 100vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%; /* Make sure the body takes the full height of the screen */
+    display: block; /* Disable flex display on the body and html elements */
     font-family: Arial, sans-serif;
     background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
 
     background: 
         linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%), 
         linear-gradient(120deg, rgba(0,172,193,0.6) 0%, rgba(0,119,255,0.4) 100%);
-    color: white;
     background-size: 300% 300%;
+    color: white;
+    overflow-y: auto; /* Allow vertical scrolling */
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    height: auto; 
-    min-height: 75vh;
     width: 100%;
     max-width: 400px;
-    padding: 20px; 
-    box-sizing: border-box; 
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 75vh;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .header {
     font-size: 32px;
-    font-weight: bold; 
+    font-weight: bold;
     margin-bottom: 20px;
+    color: white;
 }
 
 label {
-    font-weight: bold; 
-    margin-top: 10px; 
+    font-weight: bold;
+    margin-top: 10px;
+    color: white;
 }
 
 input {
@@ -47,27 +50,28 @@ input {
     box-sizing: border-box;
     margin: 5px 0;
     border: 1px solid #ccc;
-    border-radius: 25px; 
-    background-color: rgba(255, 255, 255, 0.1); 
-    color: white; 
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
     font-weight: bold;
 }
 
 input::placeholder {
-    color: rgba(255, 255, 255, 0.7); 
-    font-weight: normal; 
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: normal;
 }
 
 button {
-    padding: 10px;
-    width: 100%;
+    padding: 15px;
+    width: 300px;
     background-color: #519db3;
     color: white;
     border: none;
-    border-radius: 25px; 
+    border-radius: 25px;
     cursor: pointer;
     margin-top: 10px;
-    font-weight: bold; 
+    font-weight: bold;
+    font-size: 16px;
 }
 
 button:hover {
@@ -75,7 +79,12 @@ button:hover {
 }
 
 img {
-    max-width: 300px;
-    max-height: 300px;
-    margin-top: 10px; 
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    object-fit: cover;
 }
+

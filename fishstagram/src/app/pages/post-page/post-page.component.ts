@@ -15,7 +15,7 @@ export class PostPageComponent {
   locationInput: string = '';
   imageUrl: string | ArrayBuffer | null = null;
   caption: string = '';
-  fishData: Fish = {species: '', weight: 0, length: 0, latitude: 0, longitude: 0, imageUrl: '', date: new Date()}
+  fishData: Fish = {species: '', weight: undefined, length: undefined, latitude: 0, longitude: 0, imageUrl: '', date: new Date()}
   constructor(private communicationService: CommunicationService, private snackBar: MatSnackBar, private router: Router,) {}
 
   isImage(): boolean {
