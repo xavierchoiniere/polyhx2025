@@ -8,10 +8,11 @@ import { CommunicationService } from '../../services/communication.service';
 import { MatListModule } from '@angular/material/list';
 import { User } from '@common/user';
 import { Dataset } from '@common/dataset';
+import { Toolbar } from "../../components/toolbar";
 
 @Component({
   selector: 'app-account-page',
-  imports: [MatIconModule, MatButtonToggleModule, MatCardModule, DatePipe, MatListModule],
+  imports: [MatIconModule, MatButtonToggleModule, MatCardModule, DatePipe, MatListModule, Toolbar],
   templateUrl: './account-page.component.html',
   styleUrls: ['./account-page.component.css'],
 })
