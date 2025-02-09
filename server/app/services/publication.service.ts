@@ -3,7 +3,6 @@ import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { Publication, PublicationDocument } from "../model/schema/publication.schema";
 import { PublicationDto } from "../model/dto/publication.dto";
-import { FishService } from "./fish.service";
 
 @Injectable()
 export class PublicationService {

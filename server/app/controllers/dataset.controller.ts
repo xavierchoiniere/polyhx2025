@@ -16,4 +16,9 @@ export class DatasetController {
   async getDatasetsByUsername(@Param('username') username: string): Promise<Dataset[]> {
     return this.datasetService.getDatasetsByUsername(username);
   }
+
+  @Get()
+  async getAllDatasets(): Promise<Dataset[]> {
+    return this.datasetService.getAllDatasets();
+  }
 }
