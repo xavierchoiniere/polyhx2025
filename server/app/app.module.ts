@@ -4,6 +4,16 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { UserController } from "./controllers/user.controller";
 import { User, UserSchema } from "./model/schema/user.schema";
 import { UserService } from "./services/user.service";
+import { FishController } from "./controllers/fish.controller";
+import { Fish, FishSchema } from "./model/schema/fish.schema";
+import { FishService } from "./services/fish.service";
+import { PublicationController } from "./controllers/publication.controller";
+import {
+  Publication,
+  PublicationSchema,
+} from "./model/schema/publication.schema";
+import { PublicationService } from "./services/publication.service";
+import { PopulateService } from "./services/populate.service";
 
 @Module({
   imports: [
@@ -15,9 +25,19 @@ import { UserService } from "./services/user.service";
         uri: config.get<string>("DATABASE_CONNECTION_STRING"),
       }),
     }),
-    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    MongooseModule.forFeature([
+      { name: User.name, schema: UserSchema },
+      { name: Fish.name, schema: FishSchema },
+      { name: Publication.name, schema: PublicationSchema },
+    ]),
   ],
-  controllers: [UserController],
-  providers: [Logger, UserService],
+  controllers: [UserController, FishController, PublicationController],
+  providers: [
+    Logger,
+    UserService,
+    FishService,
+    PublicationService,
+    PopulateService,
+  ],
 })
 export class AppModule {}
