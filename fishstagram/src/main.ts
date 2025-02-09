@@ -13,15 +13,16 @@ import { AccountPageComponent } from './app/pages/account-page/account-page.comp
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { StatsMainPageComponent } from './app/pages/stats-main-page/stats-main-page.component';
 import { StatsCreationPageComponent } from './app/pages/stats-creation-page/stats-creation-page.component';
+import { AuthGuard } from './app/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent, pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
-  { path: 'feed', component: FeedPageComponent },
-  { path: 'post', component: PostPageComponent },
+  { path: 'feed', component: FeedPageComponent, canActivate: [AuthGuard] },
+  { path: 'post', component: PostPageComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupPageComponent },
-  { path: 'account', component: AccountPageComponent },
-  { path: 'main-stats', component: StatsCreationPageComponent },
+  { path: 'account', component: AccountPageComponent, canActivate: [AuthGuard] },
+  { path: 'main-stats', component: StatsCreationPageComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' },
 ];
 bootstrapApplication(AppComponent, {
