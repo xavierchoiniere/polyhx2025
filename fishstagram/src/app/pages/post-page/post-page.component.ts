@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class PostPageComponent {
   location: string = '';
   imageUrl: string | ArrayBuffer | null = null;
-  constructor(private communcationService: CommunicationService, private snackBar: MatSnackBar,) {}
+  constructor(private communcationService: CommunicationService, private snackBar: MatSnackBar) {}
 
   isImage(): boolean {
     return this.imageUrl !== null;
@@ -26,10 +26,10 @@ export class PostPageComponent {
       };
       reader.readAsDataURL(file);
       reader.onerror = (error) => {
-        alert('An error occurred while reading the file. Please try again.');
+        this.snackBar.open('An error occurred while reading the file. Please try again.', 'Close', {duration:3000});
       };
     }
-    else { alert('No file selected. Please choose an image file.'); }
+    else { this.snackBar.open('No file selected. Please choose an image file.', 'Close', {duration:3000}); }
   }
 
   getLocation() {
@@ -41,17 +41,17 @@ export class PostPageComponent {
           this.location = `Latitude: ${latitude}, Longitude: ${longitude}`;
         },
         (error) => {
-          alert('Could not retrieve location.');
+          this.snackBar.open('Could not retrieve location.', 'Close', {duration:3000});
         }
       );
     } else {
-      alert('Geolocation is not supported by this browser.');
+      this.snackBar.open('Geolocation is not supported by this browser.', 'Close',{duration:3000});
     }
   }
 
   post() {
     if (!this.location) {
-      alert('Location is required.');
+      this.snackBar.open('Location is required.','Close',{duration:3000});
       return;
     }
   }
