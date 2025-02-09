@@ -17,7 +17,7 @@ const DATASETS: Dataset[] = [
 @Component({
   selector: 'app-dataset-table',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule,],
   templateUrl: './data-set-table.component.html',
   styleUrls: ['./data-set-table.component.css']
 })
