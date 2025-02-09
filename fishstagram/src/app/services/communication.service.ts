@@ -8,7 +8,7 @@ import { User } from '@common/user'
   providedIn: 'root',
 })
 export class CommunicationService {
-  private readonly apiUrl: string = 'http://localhost:3000/api';
+  private readonly apiUrl: string = 'http://localhost:4200/api';
 
   constructor(private http: HttpClient) {}
 

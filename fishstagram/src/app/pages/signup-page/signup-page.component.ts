@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CommunicationService } from '../../services/communication.service';
 import {User} from '@common/user'
 import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signup-page',
@@ -13,11 +14,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class SignupPageComponent {
   user: User = {username: '', email: '', password: '', isScientist: false, level: 0}
-  constructor(private router: Router, private communicationService: CommunicationService) {}
+  constructor(private router: Router, private communicationService: CommunicationService, private snackBar: MatSnackBar) {}
   createAccount(){
     this.communicationService.signup(this.user).subscribe
     ({next: ()=>  {this.router.navigate(['/feed']);},
-      error: (errorHttp: HttpErrorResponse)=> alert(errorHttp.message)});
+      error: (errorHttp: HttpErrorResponse)=> this.snackBar.open(errorHttp.message, 'Close', {duration:3000})});
   }
   focusEmail() {
     const passwordInput = document.querySelector('input[type="email"]') as HTMLInputElement;
