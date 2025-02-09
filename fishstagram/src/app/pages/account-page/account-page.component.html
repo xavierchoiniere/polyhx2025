@@ -27,10 +27,9 @@
     @case ('Rank') {
       <div class="rank-container">
         @for (user of leaderboard; track user) {
-          this.incRank();
-          <mat-card class="rank-card" appearance="outlined">
+          <mat-card class="rank-card" [class.special-outline]="isYourUser(user.username)" appearance="outlined">
             <div class="rank-card-content">
-              <div class="rank">#{{ rank }}</div>
+              <div class="rank">#{{ leaderboard.indexOf(user) + 1 }}</div>
               <div class="user-name">{{ user.username }}</div>
               <div class="user-level">Level {{ user.level }}</div>
             </div>

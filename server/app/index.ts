@@ -2,6 +2,7 @@ import { AppModule } from "@app/app.module";
 import { ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import * as bodyParser from "body-parser";
+// import { PopulateService } from "@app/services/populate.service";
 
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule);

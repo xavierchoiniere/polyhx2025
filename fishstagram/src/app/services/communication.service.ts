@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { User } from '@common/user';
 import { Publication } from '@common/publication';
 import { Fish } from '@common/fish';
+import { Dataset } from '@common/dataset';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +28,7 @@ export class CommunicationService {
   getAllPublications(): Observable<Publication[]> {
     return this.http.get<Publication[]>(`${this.apiUrl}/publications`);
   }
+
   getPublicationsByUser(username: string): Observable<Publication[]> {
     return this.http.get<Publication[]>(`${this.apiUrl}/publications/user/${username}`);
   }
@@ -37,6 +39,10 @@ export class CommunicationService {
 
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.apiUrl}/users`);
+  }
+
+  getDatasetsByUser(username: string): Observable<Dataset[]> {
+    return this.http.get<Dataset[]>(`${this.apiUrl}/datasets/${username}`);
   }
 
   addPublication(publication: Publication): Observable<Publication> {

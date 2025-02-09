@@ -27,4 +27,10 @@ html {
     margin: 0;
 }
 
+.info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   

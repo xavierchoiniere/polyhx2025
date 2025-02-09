@@ -8,9 +8,9 @@
             </mat-card-header>
             <img mat-card-image src={{pub.data.imageUrl}} alt="Photo unavailable">
             <mat-card-content>
-            <p>{{pub.data.species ? pub.data.species : ''}}</p>
-            <p>{{pub.data.length ? pub.data.length + ' cm' : ''}}</p>
-            <p>{{pub.data.weight ? pub.data.weight + ' kg' : ''}}</p>
+            <p class="info"><mat-icon>set_meal</mat-icon>{{pub.data.species ? pub.data.species : ''}}</p>
+            <p class="info"><mat-icon>straighten</mat-icon>{{pub.data.length ? pub.data.length + ' cm' : ''}}</p>
+            <p class="info"><mat-icon>scale</mat-icon>{{pub.data.weight ? pub.data.weight + ' kg' : ''}}</p>
             <p>{{pub.caption}}</p>
             </mat-card-content>
           </mat-card>
