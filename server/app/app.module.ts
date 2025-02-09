@@ -14,6 +14,7 @@ import {
 } from "./model/schema/publication.schema";
 import { PublicationService } from "./services/publication.service";
 import { PopulateService } from "./services/populate.service";
+import { Dataset, DatasetSchema } from "./model/schema/dataset.schema";
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { PopulateService } from "./services/populate.service";
       { name: User.name, schema: UserSchema },
       { name: Fish.name, schema: FishSchema },
       { name: Publication.name, schema: PublicationSchema },
+      { name: Dataset.name, schema: DatasetSchema },
     ]),
   ],
   controllers: [UserController, FishController, PublicationController],

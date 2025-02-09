@@ -22,4 +22,6 @@ export class FishController {
   ): Promise<Fish[]> {
     return this.fishService.searchFish(species, longitude, latitude, radius, date);
   }
+
+  
 }
