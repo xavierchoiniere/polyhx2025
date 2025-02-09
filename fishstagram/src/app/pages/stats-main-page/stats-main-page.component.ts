@@ -3,6 +3,7 @@ import { Toolbar } from "../../components/toolbar";
 import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
 import { Router } from '@angular/router';
+import { Fish } from '@common/fish';
 
 @Component({
   selector: 'app-stats-main-page',
@@ -12,9 +13,20 @@ import { Router } from '@angular/router';
 })
 export class StatsMainPageComponent {
   constructor(private router: Router) {}
-  searchQuery = '';
-
+  speciesFilter: string = '';
+  latitude: number = 0;
+  longitude: number = 0;
+  radius: number = 0;
+  startDate: Date = new Date();
+  endDate: Date = new Date();
+  fishResults: Fish[] = [];
   openCreation(){
     this.router.navigate(['/creation-stats']);
+  }
+
+  search(){
+    if(this.speciesFilter || (this.latitude && this.longitude && this.radius) || (this.startDate && this.endDate)){
+
+    }
   }
 }
