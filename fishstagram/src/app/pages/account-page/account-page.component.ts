@@ -24,16 +24,10 @@ export class AccountPageComponent {
   publications: Publication[] = [];
   leaderboard: User[] = [];
 
-  incRank(){
-    this.rank++;
-  }
-
   ngOnInit() {
     this.communicationService.getAllUsers().subscribe({
       next: (response) => {
-        this.leaderboard = response
-        .sort((a, b) => b.level - a.level)
-        .map((user, index) => ({ ...user, rank: index + 1 }));
+        this.leaderboard = response.sort((a, b) => b.level - a.level);
       }
     });  
     this.communicationService.getPublicationsByUser(sessionStorage.getItem('username') as string).subscribe({
