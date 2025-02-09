@@ -59,7 +59,7 @@ export class StatsMainPageComponent {
     
     const rows = this.fishResults.map(fish => [
       fish.species, 
-      fish.date ? fish.date.toISOString() : '',
+      fish.date ? fish.date.toString() : '',
       fish.latitude, 
       fish.longitude
     ]);
