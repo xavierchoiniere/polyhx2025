@@ -3,12 +3,8 @@ export interface Fish {
     species?: string;
     weight?: number;
     length?: number;
-    location: Location;
-    imageUrl: string;  
-    date: Date;  
-}
-
-export interface Location {
     longitude: number;
     latitude: number;
+    imageUrl: string;  
+    date: Date;  
 }
