@@ -25,7 +25,7 @@ export class LoginPageComponent {
         if (response) {
           this.router.navigate(['/feed']);
         } else {
-          this.snackBar.open('Wrong password.', 'Close', { duration: 3000 });
+          this.snackBar.open('Wrong username or password.', 'Close', { duration: 3000 });
         }
       },
       error: (error) => {
