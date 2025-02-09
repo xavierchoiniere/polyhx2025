@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './login-page.component.css'
 })
 export class LoginPageComponent {
-  email = '';
+  user = '';
   password = '';
   constructor(private router: Router) {}
   connect(){
