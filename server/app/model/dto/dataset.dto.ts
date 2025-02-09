@@ -18,8 +18,8 @@ export class DatasetDto {
   @IsNotEmpty()
   description: string;
 
-  @IsArray()  // Ensuring 'data' is an array
-  @IsNotEmpty()  // This ensures the array is not empty
-  @IsObject({ each: true })  // Each item in the array should be a valid FishDto object
+  @IsArray()
+  @IsNotEmpty()
+  @IsObject({ each: true })
   data: FishDto[];
 }
