@@ -7,8 +7,12 @@ export interface fishDataLog{
     species?: string;
     weight?: number;
     length?: number;
-    longitude: Float64Array;
-    latitude: Float64Array;
+    location: Location;
     imageUrl: string;  
     date: Date;  
+}
+
+export interface Location {
+    longitude: number;
+    latitude: number;
 }
