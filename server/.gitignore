@@ -2,6 +2,8 @@
 /out
 /node_modules
 
+package.json
+package-lock.json
 # Logs
 logs
 *.log
@@ -13,6 +15,10 @@ lerna-debug.log*
 
 # OS
 .DS_Store
+dist/
+out/
+coverage/
+.env
 
 # Tests
 /coverage
