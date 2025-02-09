@@ -14,16 +14,17 @@ export class FishService {
   }
 
   async searchFish(
-    species?: string,
+    species?: string[],
     longitude?: number,
     latitude?: number,
     radius?: number,
-    date?: Date
+    startDate?: Date,
+    endDate?: Date
   ): Promise<Fish[]> {
     const query: any = {};
 
-    if (species) {
-      query.species = species;
+    if (species && species.length > 0) {
+      query.species = { $in: species };
     }
 
     if (longitude && latitude && radius) {
@@ -34,8 +35,12 @@ export class FishService {
       };
     }
 
-    if (date) {
-      query.date = date;
+    if (startDate && endDate) {
+      query.date = { $gte: startDate, $lte: endDate };
+    } else if (startDate) {
+      query.date = { $gte: startDate };
+    } else if (endDate) {
+      query.date = { $lte: endDate };
     }
 
     return this.fishModel.find(query).exec();
