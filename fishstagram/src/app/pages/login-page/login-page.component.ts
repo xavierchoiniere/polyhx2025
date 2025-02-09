@@ -20,7 +20,7 @@ export class LoginPageComponent {
   ) {}
 
   connect() {
-    this.communicationService.login(this.user, this.password).subscribe({
+    this.communicationService.login(this.username, this.password).subscribe({
       next: (response) => {
         if (response) {
           this.router.navigate(['/feed']);
