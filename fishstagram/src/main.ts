@@ -12,7 +12,6 @@ import { PostPageComponent } from './app/pages/post-page/post-page.component';
 import { AccountPageComponent } from './app/pages/account-page/account-page.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { StatsMainPageComponent } from './app/pages/stats-main-page/stats-main-page.component';
-import { StatsCreationPageComponent } from './app/pages/stats-creation-page/stats-creation-page.component';
 import { AuthGuard } from './app/auth.guard';
 
 const routes: Routes = [
@@ -22,7 +21,6 @@ const routes: Routes = [
   { path: 'post', component: PostPageComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupPageComponent },
   { path: 'account', component: AccountPageComponent, canActivate: [AuthGuard] },
-  { path: 'creation-stats', component: StatsCreationPageComponent, canActivate: [AuthGuard] },
   { path: 'main-stats', component: StatsMainPageComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' },
 ];

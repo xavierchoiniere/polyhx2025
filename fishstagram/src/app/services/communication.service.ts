@@ -54,6 +54,10 @@ export class CommunicationService {
     );
   }
 
+  saveDataset(dataset: Dataset): Observable<Dataset> {
+    return this.http.post<Dataset>(`${this.apiUrl}/datasets`, dataset);
+  }
+
   createFish(fish: Fish): Observable<Fish> {
     return this.http.post<Fish>(`${this.apiUrl}/fish/create`, fish);
   }

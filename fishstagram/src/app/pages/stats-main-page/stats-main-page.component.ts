@@ -6,10 +6,11 @@ import { Router } from '@angular/router';
 import { Fish } from '@common/fish';
 import { FishTableComponent } from "../../components/fish-table/fish-table.component";
 import { CommunicationService } from '../../services/communication.service';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-stats-main-page',
-  imports: [Toolbar, FormsModule, FishTableComponent],
+  imports: [Toolbar, FormsModule, FishTableComponent, MatDialogModule],
   templateUrl: './stats-main-page.component.html',
   styleUrl: './stats-main-page.component.css'
 })
@@ -24,7 +25,7 @@ export class StatsMainPageComponent {
   endDate: Date = new Date();
   fishResults: Fish[] = [];
   openCreation(){
-    this.router.navigate(['/creation-stats']);
+    
   }
 
   search(){

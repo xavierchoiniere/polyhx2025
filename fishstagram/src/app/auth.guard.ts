@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
     const loginTime = localStorage.getItem('loginTime');
     if (loginTime) {
       const elapsedTime = Date.now() - parseInt(loginTime);
-      return elapsedTime < 5 * 60 * 1000;
+      return elapsedTime < 10 * 60 * 1000;
     }
     return false;
   }

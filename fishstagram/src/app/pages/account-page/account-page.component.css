@@ -122,3 +122,9 @@ body, html {
 .special-outline {
   border: 2px solid gold;
 }
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

@@ -73,6 +73,9 @@ export class PostPageComponent {
     this.communicationService.createFish(newFishData).subscribe(
       {next: () => {this.communicationService.addPublication(
         { username: newUsername, data: newFishData, caption: this.caption }).subscribe(
-          {next: () => {this.router.navigate(['/feed']);}});}});
+          {next: () => {  this.communicationService.getUser(newUsername).subscribe({
+            next: (user) => {
+              this.communicationService.updateUserLevel(newUsername, user.level + 1);
+            }})}})}})
   }
 }
