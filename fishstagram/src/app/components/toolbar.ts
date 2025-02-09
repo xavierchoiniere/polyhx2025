@@ -27,6 +27,9 @@ import { AuthGuard } from '../auth.guard';
     openPost(){
       this.router.navigate(['/post']);
     }
+    openStats(){
+      this.router.navigate(['/main-stats']);
+    }
     openAccount(){
       this.router.navigate(['/account']);
     }

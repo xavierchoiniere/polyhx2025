@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'post', component: PostPageComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupPageComponent },
   { path: 'account', component: AccountPageComponent, canActivate: [AuthGuard] },
-  { path: 'main-stats', component: StatsCreationPageComponent, canActivate: [AuthGuard] },
+  { path: 'creation-stats', component: StatsCreationPageComponent, canActivate: [AuthGuard] },
+  { path: 'main-stats', component: StatsMainPageComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' },
 ];
 bootstrapApplication(AppComponent, {
