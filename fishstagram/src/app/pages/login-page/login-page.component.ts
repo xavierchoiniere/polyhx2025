@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommunicationService } from '../../services/communication.service';
 @Component({
   selector: 'app-login-page',
   imports: [FormsModule],
@@ -10,10 +11,14 @@ import { Router } from '@angular/router';
 export class LoginPageComponent {
   user = '';
   password = '';
-  constructor(private router: Router) {}
+  constructor(private router: Router, private communicationService: CommunicationService) {}
   connect(){
-    //check if password is good (server side check)
-    this.router.navigate(['/feed']);
+    this.communicationService.login(this.user, this.password).subscribe(
+      {next: (response)=> {if (response){
+        this.router.navigate(['/feed']);}
+        else alert('Wrong password');
+      }})
+
   }
   signUp(){
     this.router.navigate(['/signup']);
