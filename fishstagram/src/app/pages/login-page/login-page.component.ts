@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './login-page.component.css',
 })
 export class LoginPageComponent {
-  user = '';
+  username = '';
   password = '';
   constructor(
     private router: Router,
