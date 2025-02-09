@@ -19,6 +19,7 @@ export class AccountPageComponent {
   constructor(private communicationService: CommunicationService) {}
   currentScreen: string = 'Publications'; 
   isScientist: boolean = sessionStorage.getItem('isScientist') as unknown as boolean;
+  rank: number = 1;
 
   publications: Publication[] = [];
   leaderboard: User[] = [];
