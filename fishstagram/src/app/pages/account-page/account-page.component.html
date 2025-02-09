@@ -4,8 +4,8 @@
 </div>
 
 <div class="content">
-  @if (currentScreen === 'Posts') {
-    <div class="posts-container">
+  @if (currentScreen === 'Publications') {
+    <div class="publications-container">
       @for (pub of publications; track pub) {
         <mat-card class="card" appearance="outlined">
           <mat-card-header>
@@ -27,7 +27,7 @@
 
 <div class="bottom-bar">
   <mat-button-toggle-group [value]="currentScreen" (change)="onToggleChange($event)">
-    <mat-button-toggle value="Posts">Posts</mat-button-toggle>
+    <mat-button-toggle value="Publications">Publications</mat-button-toggle>
     <mat-button-toggle value="Rank">Rank</mat-button-toggle>
     @if (isScientist) {
       <mat-button-toggle value="Datasets">Datasets</mat-button-toggle>
