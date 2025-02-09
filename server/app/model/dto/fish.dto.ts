@@ -10,20 +10,20 @@ export class FishDto {
   species?: string;
 
   @IsOptional()
-  @IsNumber()
+  @IsString()
   weight?: number;
 
   @IsOptional()
-  @IsNumber()
+  @IsString()
   length?: number;
 
-  @IsNumber()
+  @IsString()
   longitude: number;
 
-  @IsNumber()
+  @IsString()
   latitude: number;
 
-  @IsUrl()
+  @IsString()
   imageUrl: string;
 
   @IsString()
