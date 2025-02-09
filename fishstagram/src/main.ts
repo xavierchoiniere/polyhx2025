@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: '', component: LoginPageComponent, pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
   { path: 'feed', component: FeedPageComponent, canActivate: [AuthGuard] },
-  { path: 'post', component: PostPageComponent, canActivate: [AuthGuard] },
+  { path: 'post', component: PostPageComponent, /*canActivate: [AuthGuard]*/ },
   { path: 'signup', component: SignupPageComponent },
   { path: 'account', component: AccountPageComponent, canActivate: [AuthGuard] },
   { path: 'main-stats', component: StatsMainPageComponent, canActivate: [AuthGuard] },
