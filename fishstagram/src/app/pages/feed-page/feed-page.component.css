@@ -27,10 +27,9 @@ html {
     margin: 0;
 }
 
-.info-item {
+.info {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
   }
 
