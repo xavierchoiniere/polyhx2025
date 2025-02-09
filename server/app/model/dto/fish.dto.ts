@@ -7,7 +7,7 @@ export class FishDto {
   _id: string;
 
   @IsOptional()
-  @IsNumber()
+  @IsString()
   species?: string;
 
   @IsOptional()
