@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 import { Fish } from '@common/fish';
 import { FishTableComponent } from "../../components/fish-table/fish-table.component";
 import { CommunicationService } from '../../services/communication.service';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { PopupComponent } from '../../components/popup/popup.component';
 
 @Component({
   selector: 'app-stats-main-page',
@@ -15,7 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   styleUrl: './stats-main-page.component.css'
 })
 export class StatsMainPageComponent {
-  constructor(private router: Router, private communicationService: CommunicationService) {}
+  constructor(private router: Router, private communicationService: CommunicationService, private dialog: MatDialog,) {}
   speciesFilter: string[] = [];
   speciesFilterInput: string = '';
   latitude: number = 0;
@@ -25,7 +26,14 @@ export class StatsMainPageComponent {
   endDate: Date = new Date();
   fishResults: Fish[] = [];
   openCreation(){
-    
+    const dialogRef = this.dialog.open(PopupComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        const { username, title } = result;
+        this.communicationService.saveDataset(result).subscribe();
+      }
+    });
   }
 
   search(){
