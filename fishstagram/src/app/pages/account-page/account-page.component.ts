@@ -24,6 +24,10 @@ export class AccountPageComponent {
   publications: Publication[] = [];
   leaderboard: User[] = [];
 
+  incRank(){
+    this.rank++;
+  }
+
   ngOnInit() {
     this.communicationService.getAllUsers().subscribe({
       next: (response) => {
