@@ -1,20 +1,24 @@
 import { Controller, Get, Post, Body, Param } from "@nestjs/common";
-import { InjectModel } from "@nestjs/mongoose";
-import { Model } from "mongoose";
+import { UserService } from "../services/user.service";
+import { UserDto } from "../model/dto/user.dto";
 import { User } from "../model/schema/user.schema";
 
 @Controller('users')
 export class UserController {
-  constructor(@InjectModel(User.name) private userModel: Model<User>) {}
+  constructor(private readonly userService: UserService) {}
 
   @Get(':username')
   async getUserByUsername(@Param('username') username: string): Promise<User> {
-    return this.userModel.findOne({ username }).exec();
+    return this.userService.getUserByUsername(username);
   }
 
-  @Post()
-  async addUser(@Body() createUserDto: { name: string; email: string; password: string }): Promise<User> {
-    const createdUser = new this.userModel(createUserDto);
-    return createdUser.save();
+  @Post('signup')
+  async addUser(@Body() createUserDto: UserDto): Promise<User> {
+    return this.userService.createUser(createUserDto);
+  }
+
+  @Post('login')
+  async loginUser(@Body() loginUserDto: { username: string; password: string }): Promise<User | null> {
+    return this.userService.validateUser(loginUserDto.username, loginUserDto.password);
   }
 }
