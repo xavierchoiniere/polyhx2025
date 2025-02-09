@@ -4,16 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { Fish } from '@common/fish';
+import { FishTableComponent } from "../../components/fish-table/fish-table.component";
+import { CommunicationService } from '../../services/communication.service';
 
 @Component({
   selector: 'app-stats-main-page',
-  imports: [Toolbar, FormsModule],
+  imports: [Toolbar, FormsModule, FishTableComponent],
   templateUrl: './stats-main-page.component.html',
   styleUrl: './stats-main-page.component.css'
 })
 export class StatsMainPageComponent {
-  constructor(private router: Router) {}
-  speciesFilter: string = '';
+  constructor(private router: Router, private communicationService: CommunicationService) {}
+  speciesFilter: string[] = [];
+  speciesFilterInput: string = '';
   latitude: number = 0;
   longitude: number = 0;
   radius: number = 0;
@@ -25,8 +28,14 @@ export class StatsMainPageComponent {
   }
 
   search(){
-    if(this.speciesFilter || (this.latitude && this.longitude && this.radius) || (this.startDate && this.endDate)){
-
+    if(this.speciesFilter.length || (this.latitude && this.longitude && this.radius) || (this.startDate && this.endDate)){
+      this.communicationService.searchFish(this.speciesFilter, this.longitude, this.latitude, this.radius, this.startDate, this.endDate).subscribe(
+        {next: (response) => {
+        this.fishResults = response;}})
     }
+  }
+
+  onSpeciesInputChange() {
+    this.speciesFilter = this.speciesFilterInput.split(' ').filter(species => species.trim().length > 0);
   }
 }
