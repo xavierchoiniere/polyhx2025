@@ -34,6 +34,10 @@ export class CommunicationService {
     return this.http.get<User>(`${this.apiUrl}/users/${username}`);
   }
 
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}/users`);
+  }
+
   addPublication(publication: Publication): Observable<Publication> {
     return this.http.post<Publication>(`${this.apiUrl}/publications`, publication);
   }

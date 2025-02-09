@@ -2,13 +2,15 @@ import { Controller, Get, Post, Patch, Body, Param, Query } from "@nestjs/common
 import { PublicationService } from "../services/publication.service";
 import { PublicationDto } from "../model/dto/publication.dto";
 import { Publication } from "../model/schema/publication.schema";
+import { FishService } from "@app/services/fish.service";
 
 @Controller('publications')
 export class PublicationController {
-  constructor(private readonly publicationService: PublicationService) {}
+  constructor(private readonly publicationService: PublicationService, private readonly fishService: FishService) {}
 
   @Post()
   async addPublication(@Body() createPublicationDto: PublicationDto): Promise<Publication> {
+    await this.fishService.createFish(createPublicationDto.data);
     return this.publicationService.createPublication(createPublicationDto);
   }
 

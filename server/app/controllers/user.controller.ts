@@ -7,6 +7,12 @@ import { User } from "../model/schema/user.schema";
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+
+  @Get()
+  async getAllUsers(): Promise<User[]> {
+    return this.userService.getAllUsers();
+  }
+  
   @Get(':username')
   async getUserByUsername(@Param('username') username: string): Promise<User> {
     return this.userService.getUserByUsername(username);
