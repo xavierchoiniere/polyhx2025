@@ -7,6 +7,7 @@ import { Publication } from '@common/publication'
 import { CommunicationService } from '../../services/communication.service';
 import { MatListModule } from '@angular/material/list';
 import { User } from '@common/user';
+import { Dataset } from '@common/dataset';
 
 @Component({
   selector: 'app-account-page',
@@ -16,15 +17,17 @@ import { User } from '@common/user';
 })
 
 export class AccountPageComponent {
-  constructor(private communicationService: CommunicationService) {}
-  currentScreen: string = 'Publications'; 
+  constructor(private communicationService: CommunicationService) { }
+  currentScreen: string = 'Publications';
   isScientist: boolean = sessionStorage.getItem('isScientist') as unknown as boolean;
+  username: string = sessionStorage.getItem('username') as string;
   rank: number = 1;
 
   publications: Publication[] = [];
   leaderboard: User[] = [];
+  datasets: Dataset[] = [];
 
-  incRank(){
+  incRank() {
     this.rank++;
   }
 
@@ -35,12 +38,19 @@ export class AccountPageComponent {
         .sort((a, b) => b.level - a.level)
         .map((user, index) => ({ ...user, rank: index + 1 }));
       }
-    });  
-    this.communicationService.getPublicationsByUser(sessionStorage.getItem('username') as string).subscribe({
+    });
+    this.communicationService.getPublicationsByUser(this.username).subscribe({
       next: (response) => {
         this.publications = response;
-      }});
-  
+      }
+    });
+    if (this.isScientist) {
+      this.communicationService.getDatasetsByUser(this.username).subscribe({
+        next: (response) => {
+          this.datasets = response;
+        }
+      });
+    }
   }
 
   onToggleChange(event: any) {
