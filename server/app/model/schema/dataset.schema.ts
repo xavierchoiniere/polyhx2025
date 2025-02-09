@@ -1,6 +1,6 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Fish } from "./fish.schema";
-import { Document } from "mongoose";
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Fish } from './fish.schema';
+import { Document } from 'mongoose';
 
 export type DatasetDocument = Dataset & Document;
 
@@ -15,7 +15,7 @@ export class Dataset {
   @Prop({ required: true })
   description: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true })  
   data: Fish[];
 }
 
