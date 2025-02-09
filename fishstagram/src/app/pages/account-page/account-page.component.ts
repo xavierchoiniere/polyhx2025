@@ -18,8 +18,7 @@ import { User } from '@common/user';
 export class AccountPageComponent {
   constructor(private communicationService: CommunicationService) {}
   currentScreen: string = 'Publications'; 
-  isScientist: boolean = JSON.parse(sessionStorage.getItem('isScientist') as string);
-  rank: number = 1;
+  isScientist: boolean = sessionStorage.getItem('isScientist') as unknown as boolean;
 
   publications: Publication[] = [];
   leaderboard: User[] = [];
