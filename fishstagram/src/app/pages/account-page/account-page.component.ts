@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { Publication } from '@common/publication'
 
 @Component({
   selector: 'app-account-page',
@@ -11,6 +12,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 export class AccountPageComponent {
   currentScreen: string = 'posts'; 
   isScientist: boolean = false; 
+
+  publications: Publication[] = [];
 
   onToggleChange(event: any) {
     this.currentScreen = event.value;
