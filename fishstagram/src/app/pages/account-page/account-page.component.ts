@@ -17,13 +17,13 @@ import { MatListModule } from '@angular/material/list';
 export class AccountPageComponent {
   constructor(private communicationService: CommunicationService) {}
   currentScreen: string = 'Publications'; 
-  isScientist: boolean = true; 
+  isScientist: boolean = JSON.parse(sessionStorage.getItem('isScientist') as string);
 
   publications: Publication[] = [];
   leaderboard = [
-    { id: 1, icon: 'https://example.com/icon1.png', name: 'User One', level: 10 },
-    { id: 2, icon: 'https://example.com/icon2.png', name: 'User Two', level: 8 },
-    { id: 3, icon: 'https://example.com/icon3.png', name: 'User Three', level: 7 },
+    { id: 1, name: 'User One', level: 10 },
+    { id: 2, name: 'User Two', level: 8 },
+    { id: 3, name: 'User Three', level: 7 },
   ];
 
   ngOnInit() {

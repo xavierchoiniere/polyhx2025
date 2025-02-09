@@ -96,10 +96,6 @@ body, html {
   border-bottom: 2px solid #ccc; /* Add a border between cards */
 }
 
-.rank-card:last-child {
-  border-bottom: none; /* Remove border for the last card */
-}
-
 .rank-card-content {
   display: flex;
   align-items: center;
@@ -110,7 +106,7 @@ body, html {
 .user-icon {
   width: 30px;
   height: 30px;
-  border-radius: 50%; /* Circular icon */
+  border-radius: 100%; /* Circular icon */
 }
 
 .user-name {

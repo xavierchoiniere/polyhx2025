@@ -29,7 +29,6 @@
         @for (user of leaderboard; track user.id) {
           <mat-card class="rank-card" appearance="outlined">
             <div class="rank-card-content">
-              <img [src]="user.icon" alt="User Icon" class="user-icon">
               <div class="user-name">{{ user.name }}</div>
               <div class="user-level">Level {{ user.level }}</div>
             </div>
