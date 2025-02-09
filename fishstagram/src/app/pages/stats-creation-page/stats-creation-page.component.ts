@@ -8,5 +8,6 @@ import { FishTableComponent } from "../../components/fish-table/fish-table.compo
   styleUrl: './stats-creation-page.component.css'
 })
 export class StatsCreationPageComponent {
+datasets: any;
 
 }
