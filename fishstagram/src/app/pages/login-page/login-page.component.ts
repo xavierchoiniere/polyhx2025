@@ -24,6 +24,8 @@ export class LoginPageComponent {
       next: (response) => {
         if (response) {
           this.router.navigate(['/feed']);
+          sessionStorage.setItem('username', this.username);
+          sessionStorage.setItem('isScientist', response.isScientist.toString());
         } else {
           this.snackBar.open('Wrong username or password.', 'Close', { duration: 3000 });
         }

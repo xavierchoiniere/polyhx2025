@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class PostPageComponent {
   location: string = '';
   imageUrl: string | ArrayBuffer | null = null;
-  constructor(private communcationService: CommunicationService, private snackBar: MatSnackBar) {}
+  constructor(private communicationService: CommunicationService, private snackBar: MatSnackBar) {}
 
   isImage(): boolean {
     return this.imageUrl !== null;
