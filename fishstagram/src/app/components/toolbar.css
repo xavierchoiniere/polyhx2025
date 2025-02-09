@@ -1,5 +1,6 @@
+/* Styling for the toolbar */
 .toolbar {
-    background-color: #3C3744;
+    background-color: rgba(0,172,193,1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,43 +10,104 @@
     top: 0;         
     left: 0;         
     right: 0;       
-    z-index: 1000;  
+    z-index: 1000;
+    padding: 0 16px;  /* Optional: Add some horizontal padding */
 }
 
+/* Pseudo-element for bottom line */
+.toolbar::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 99.6%;
+    height: 4px;
+    background-color: aliceblue;
+    border-radius: 0 0 5% 5%;
+}
 
-button {
-    background-color: #519db3;
+/* Logo container that holds logo and title */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align the logo and title to the left */
+}
+
+.logo {
+    width: 50px;   /* Adjust logo size */
+    height: auto;
+    object-fit: contain;
+    margin-right: 8px; /* Adds spacing between logo and title */
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+/* Post button */
+button.post {
+    background-color: rgba(0,172,193,1);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+}
+
+button.post:hover {
+    background-color: #5786b5;
+}
+
+#no-overflow{
+    overflow: visible;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 8px;
+    
+}
+
+/* Styling for individual buttons */
+button {
+    background-color: rgba(0,172,193,1);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
 }
 
 button:hover {
     background-color: #5786b5;
 }
 
-
-.button-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 16px;
+/* Icon button styling */
+button.mat-icon-button {
+    padding: 8px;
 }
 
-.title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.25rem;
-    color: white;
+/* Optional: Add margins for spacing between elements */
+button {
+    margin: 0 8px; /* Adds space between buttons */
 }
 
-button.post {
-    width: 100px;
+
+button.mat-icon-button {
+    padding: 8px;
+    width: 40px;  /* Adjust the width as needed */
+    height: 40px;  /* Adjust the height as needed */
     display: flex;
     justify-content: center;
     align-items: center;
