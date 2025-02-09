@@ -56,15 +56,15 @@ export class PostPageComponent {
     }
 
     // Call the postData method from ApiService
-    this.communcationService.postPublishData(this.location, this.imageUrl).subscribe({
-      next: (response) => {
-        console.log('Data posted successfully:', response);
-        alert('Post successful!');
-      },
-      error: (error) => {
-        console.error('Error occurred while posting data:', error);
-        alert('An error occurred while posting data. Please try again.');
-      },
-    });
+  //   this.communcationService.postPublishData(this.location, this.imageUrl).subscribe({
+  //     next: (response) => {
+  //       console.log('Data posted successfully:', response);
+  //       alert('Post successful!');
+  //     },
+  //     error: (error) => {
+  //       console.error('Error occurred while posting data:', error);
+  //       alert('An error occurred while posting data. Please try again.');
+  //     },
+  //   });
   }
 }
