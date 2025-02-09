@@ -14,7 +14,7 @@ export class PostPageComponent {
   locationInput: string = '';
   imageUrl: string | ArrayBuffer | null = null;
   caption: string = '';
-  fishData: Fish = {species: '', weight: 0, length: 0, location: {latitude: 0, longitude: 0}, imageUrl: '', date: new Date()}
+  fishData: Fish = {species: '', weight: 0, length: 0, latitude: 0, longitude: 0, imageUrl: '', date: new Date()}
   constructor(private communicationService: CommunicationService, private snackBar: MatSnackBar) {}
 
   isImage(): boolean {
@@ -42,8 +42,8 @@ export class PostPageComponent {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
           this.locationInput = `Latitude: ${latitude}, Longitude: ${longitude}`;
-          this.fishData.location.latitude = latitude;
-          this.fishData.location.longitude = longitude;
+          this.fishData.latitude = latitude;
+          this.fishData.longitude = longitude;
         },
         (error) => {
           this.snackBar.open('Could not retrieve location.', 'Close', {duration:3000});
@@ -69,7 +69,9 @@ export class PostPageComponent {
     }
     const newUsername = sessionStorage.getItem('username') as string;
     const newFishData = {... this.fishData, date: new Date(), imageUrl: this.imageUrl as string};
-    this.communicationService.addPublication({ username: newUsername, data: newFishData, caption: this.caption }).subscribe();
-    this.communicationService.createFish(newFishData).subscribe();
+    this.communicationService.createFish(newFishData).subscribe(
+      {next: () => {this.communicationService.addPublication(
+        { username: newUsername, data: newFishData, caption: this.caption }).subscribe();}});
+    
   }
 }

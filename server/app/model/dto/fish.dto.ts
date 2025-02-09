@@ -1,4 +1,5 @@
-import { IsOptional, IsString, IsNumber, IsUrl } from "class-validator";
+import { IsOptional, IsString, IsNumber } from "class-validator";
+import { isFloat64Array } from "util/types";
 
 export class FishDto {
   @IsOptional()
@@ -10,11 +11,11 @@ export class FishDto {
   species?: string;
 
   @IsOptional()
-  @IsNumber()
+  @IsString()
   weight?: number;
 
   @IsOptional()
-  @IsNumber()
+  @IsString()
   length?: number;
 
   @IsNumber()
@@ -23,7 +24,7 @@ export class FishDto {
   @IsNumber()
   latitude: number;
 
-  @IsUrl()
+  @IsString()
   imageUrl: string;
 
   @IsString()
